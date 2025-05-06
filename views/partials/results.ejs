@@ -1,0 +1,276 @@
+<!-- views/partials/results.ejs -->
+<section class="results-section" id="results-container">
+  <% if (results && results.length > 0) { %>
+    <h3>Related Expressions</h3>
+    <div class="results-count">Found <span id="results-number"><%= totalResults %></span> related expressions</div>
+    
+    <div class="expressions-list">
+      <% results.forEach(expression => { %>
+        <div class="result-item <%= expression.isUserMember ? 'user-member' : '' %>" 
+             data-expression-id="<%= expression.id %>" 
+             data-section="expression-details-<%= expression.id %>">
+             <!-- Inside results-item div -->
+<div class="expression-text"><%= expression.text %></div>
+          <div class="expression-meta">
+            <% if (expression.set) { %>
+              <span class="cohort-badge <%= expression.set %>-badge"><%= expression.set %></span>
+            <% } %>
+            <span class="member-count"><%= expression.memberCount || 0 %> members</span>
+            <% if (locals.showPercentage && expression.overlapPercentage) { %>
+              <span class="overlap-percentage"><%= expression.overlapPercentage %>% overlap</span>
+            <% } %>
+          </div>
+        </div>
+      <% }); %>
+    </div>
+    
+    <% if (totalResults > pageSize) { %>
+      <div class="pagination">
+        <% 
+        const totalPages = Math.ceil(totalResults / pageSize);
+        %>
+        
+        <% if (page > 1) { %>
+          <button class="page-btn first-page" data-page="1">First</button>
+          <button class="page-btn prev-page" data-page="<%= page-1 %>">Prev</button>
+        <% } %>
+        
+        <div class="page-numbers">
+          <% for (let i = 1; i <= totalPages; i++) { %>
+            <button class="page-btn number-btn <%= i === page ? 'active-page' : '' %>" data-page="<%= i %>"><%= i %></button>
+          <% } %>
+        </div>
+        
+        <% if (page < totalPages) { %>
+          <button class="page-btn next-page" data-page="<%= page+1 %>">Next</button>
+          <button class="page-btn last-page" data-page="<%= totalPages %>">Last</button>
+        <% } %>
+      </div>
+    <% } %>
+  <% } else { %>
+    <div class="empty-results">
+      <div class="no-results">No related expressions found</div>
+      <p class="empty-tip">Try adding more cohorts or creating new expressions</p>
+    </div>
+  <% } %>
+<!-- Expression Detail Overlays -->
+<% if (results && results.length > 0) { %>
+  <% results.forEach(expression => { %>
+    <div class="overlay-form" id="expression-details-<%= expression.id %>">
+      <div class="form-content">
+        <h2><%= expression.text %></h2>
+        <p class="overlay-member-count">
+          <% if (expression.set) { %>
+            <span class="cohort-badge <%= expression.set %>-badge"><%= expression.set %></span>
+          <% } %>
+          <%= expression.memberCount || 0 %> members identify with this expression
+          <% if (locals.showPercentage && expression.overlapPercentage) { %>
+            <span class="overlap-detail">(<%= expression.overlapPercentage %>% overlap with examined expressions)</span>
+          <% } %>
+        </p>
+        
+        <div class="overlay-actions">
+          <% if (user) { %>
+            <% if (expression.isUserMember) { %>
+              <button class="disidentify-btn" 
+                      data-id="<%= expression.id %>" 
+                      data-text="<%= expression.text %>">
+                Disidentify
+              </button>
+            <% } else { %>
+              <button class="identify-btn" 
+                      data-id="<%= expression.id %>" 
+                      data-text="<%= expression.text %>">
+                Identify
+              </button>
+            <% } %>
+          <% } %>
+          
+          <!-- Always allow "Add to examination" -->
+          <button class="add-to-examination-btn" 
+                  data-id="<%= expression.id %>" 
+                  data-text="<%= expression.text %>">
+            Add to examination
+          </button>
+          
+          <a href="/explore/<%= expression.id %>" class="explore-link">
+            Explore this cohort in a new dashboard
+          </a>
+        </div>
+      </div>
+    </div>
+  <% }); %>
+<% } %>
+</section>
+
+<style>
+  /* Pagination styling */
+  .pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1.5rem 0;
+    flex-wrap: wrap;
+    gap: 0.3rem;
+  }
+  
+  .page-numbers {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.3rem;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .page-btn {
+    padding: 0.35rem 0.6rem;
+    background-color: #5f5fd1;
+    color: #e0e0e0;
+    border: 1px solid #333;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: all 0.2s;
+    min-width: 2.5rem;
+    text-align: center;
+  }
+  
+  .page-btn:hover {
+    background-color: #9191bb;
+  }
+  
+  .page-btn.active-page {
+    background-color: #7182f3;
+    font-weight: bold;
+    border-color: #5a5aaa;
+  }
+  
+  .first-page, .last-page, .prev-page, .next-page {
+    background-color: #1a8a54;
+  }
+  
+  /* Overlap percentage styling */
+  .overlap-percentage {
+    display: inline-flex;
+    align-items: center;
+    margin-left: 0.6rem;
+    font-size: 0.8rem;
+    color: #1a8a54;
+    font-weight: 600;
+  }
+  
+  .overlap-percentage:before {
+    content: '';
+    display: inline-block;
+    width: 5px;
+    height: 5px;
+    background: #1a8a54;
+    border-radius: 50%;
+    margin-right: 5px;
+  }
+  
+  .overlap-detail {
+    display: inline-block;
+    margin-left: 0.5rem;
+    font-size: 0.9rem;
+    color: #1a8a54;
+  }
+
+  @media (max-width: 768px) {
+    .pagination {
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+  }
+</style>
+
+<script>
+  window.currentPage = <%= page || 1 %>;
+
+  document.addEventListener('DOMContentLoaded', function() {
+    // Handle result item clicks to open overlay
+    document.querySelectorAll('.result-item').forEach(item => {
+      item.addEventListener('click', function() {
+        const sectionId = this.getAttribute('data-section');
+        if (sectionId) {
+          const overlay = document.getElementById(sectionId);
+          if (overlay) overlay.classList.add('active');
+        }
+      });
+    });
+
+    // Handle overlay background clicks to close
+    document.querySelectorAll('.overlay-form').forEach(overlay => {
+      overlay.addEventListener('click', function(e) {
+        if (e.target === this) {
+          this.classList.remove('active');
+        }
+      });
+    });
+
+    // Handle pagination button clicks
+    document.querySelectorAll('.page-btn').forEach(btn => {
+      btn.addEventListener('click', function(e) {
+        e.preventDefault();
+        handlePagination(parseInt(this.getAttribute('data-page'), 10));
+      });
+    });
+  });
+
+  function handlePagination(page) {
+    window.currentPage = page;
+
+    const expressionIds = Array.from(
+      document.querySelectorAll('.expression-card')
+    ).map(card => card.getAttribute('data-expression-id'));
+
+    // Show loading indicator
+    const resultsContainer = document.getElementById('results-container');
+    resultsContainer.innerHTML = `
+      <div class="results-loading">
+        <div class="loading-spinner"></div>
+        <p>Loading page ${page}...</p>
+      </div>
+    `;
+
+    fetch('/api/explore', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        expressionIds,
+        page,
+        pageSize: 30
+      })
+    })
+    .then(res => res.json())
+    .then(data => {
+      if (data && data.html) {
+        resultsContainer.innerHTML = data.html;
+
+        // Refresh pagination buttons
+        document.querySelectorAll('.page-btn').forEach(btn => {
+          btn.addEventListener('click', function(e) {
+            e.preventDefault();
+            handlePagination(parseInt(this.getAttribute('data-page'), 10));
+          });
+        });
+
+        // Re-attach overlay logic if defined
+        if (typeof window.attachOverlayListeners === 'function') {
+          window.attachOverlayListeners();
+        }
+      }
+    })
+    .catch(err => {
+      console.error('Pagination error:', err);
+      resultsContainer.innerHTML = `
+        <div class="empty-results">
+          <div class="no-results">Error loading results</div>
+          <p class="empty-tip">Please try again</p>
+        </div>
+      `;
+    });
+  }
+</script>

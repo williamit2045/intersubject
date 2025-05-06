@@ -1,0 +1,387 @@
+<%- include('./partials/header', { title: 'Intersubject | A Live Anthropology Experiment in Social Insight' }) %>
+<%- include('./partials/nav') %>
+
+<main class="home-main">
+    <section class="hero">
+        <div class="hero-container">
+          <div class="hero-graphic">
+            <div class="orbit-container">
+                <div class="orbit-ring"></div>
+                <div class="orbiting-circles">
+                    <div class="orbit-circle circle-1"></div>
+                    <div class="orbit-circle circle-2"></div>
+                    <div class="orbit-circle circle-3"></div>
+                    <div class="orbit-circle circle-4"></div>
+                </div>
+            </div>
+        </div>
+            <div class="hero-content">
+                <h1>INTERSUBJECT</h1>
+                <h2>An Experiment in Personal and Social Insight to Illustrate</h2>
+                <div class="hero-description">
+                  <ul>
+                    <li>That a real, shared picture of who we are can emerge—through voluntary, anonymous cohort expression.</li>
+                    <li>That people can create something real by being real—no profiles, no performance, just truth in common.</li>
+                    <li>That authentic community forms and earns benevolent solidarity when individuals express what they actually believe, not what earns approval or preserves false belonging.</li>
+                    <li>How a Collective human intelligence and emergent 'cohort-self-consciousness' reflected back to the individual is our best tool for a coherent moral-epistemology to emerge, and to oppose human-motivated autocracy, tyranny, groupthink, and AI misuse.</li>
+                    <li>That self-awareness, solidarity, and moral clarity can be scaled—if we build from authentic cohort-overlap instead of the endless, fear-based coercion of your own mind by people who themselves fear you, free and unafraid to be as you are!</li>
+                  </ul>
+                </div>
+                <div class="hero-cta">
+                    <button class="cta-button primary" data-section="register">Be the Light You Already Are.</button>
+                    <button class="cta-button secondary" data-section="login">Sign In</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Place this between the hero section and trust-banner section -->
+<section class="home-upcoming-features">
+    <div class="home-feature-header">
+      <h2>Coming Soon to Intersubject</h2>
+      <p>Our development roadmap for deeper collective intelligence</p>
+    </div>
+    
+    <div class="home-feature-cards">
+      <div class="home-feature-card">
+        <div class="home-feature-icon">📊</div>
+        <h3>Psychological Assessments & Questionnaires</h3>
+        <p>Complete standardized psychological inventories with your answers automatically creating your cohort profile.</p>
+        <ul class="home-feature-list">
+          <li>Myers-Briggs and Big Five Personality assessments</li>
+          <li>Moral Foundations measurement</li>
+          <li>See privately where you stand in relation to others</li>
+        </ul>
+        <div class="home-feature-timeline">
+          <div class="home-timeline-marker"></div>
+          <span>Coming Summer 2025</span>
+        </div>
+      </div>
+      
+      <div class="home-feature-card">
+        <div class="home-feature-icon">🧩</div>
+        <h3>Community-Created Questionnaires</h3>
+        <p>Create your own question sets and invite others to respond, building unique cohort groupings around specific topics.</p>
+        <ul class="home-feature-list">
+          <li>Build custom assessment tools</li>
+          <li>Responses automatically link to cohorts</li>
+          <li>Discover unexpected patterns across groups</li>
+        </ul>
+        <div class="home-feature-timeline">
+          <div class="home-timeline-marker"></div>
+          <span>Coming Fall 2025</span>
+        </div>
+      </div>
+      
+      <div class="home-feature-card">
+        <div class="home-feature-icon">🌐</div>
+        <h3>Cohort-to-Cohort Semantic Network</h3>
+        <p>Experience the next evolution of social mapping as cohorts link to other cohorts based on semantic relationships.</p>
+        <ul class="home-feature-list">
+          <li>Create a rich network of meaning among cohorts</li>
+          <li>Explore conceptual connections beyond shared users</li>
+          <li>Visualize emerging patterns of collective thinking</li>
+        </ul>
+        <div class="home-feature-timeline">
+          <div class="home-timeline-marker"></div>
+          <span>Coming Winter 2025</span>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <style>
+    .home-upcoming-features {
+      background-color: #F5F9FF;
+      padding: 3rem 0;
+      margin-top: 0;
+      border-top: 3px solid #E53935;
+      border-bottom: 3px solid #E53935;
+    }
+    
+    .home-feature-header {
+      text-align: center;
+      margin-bottom: 2.5rem;
+      padding: 0 1rem;
+    }
+    
+    .home-feature-header h2 {
+      font-family: 'Rajdhani', sans-serif;
+      color: #1E88E5;
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    
+    .home-feature-header p {
+      color: #616161;
+      font-size: 1.1rem;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    
+    .home-feature-cards {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+      padding: 0 1rem;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    
+    .home-feature-card {
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+      padding: 2rem;
+      width: 100%;
+      max-width: 380px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
+      border-top: 4px solid #1E88E5;
+    }
+    
+    .home-feature-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+    }
+    
+    .home-feature-icon {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+    
+    .home-feature-card h3 {
+      color: #1E88E5;
+      font-size: 1.4rem;
+      margin-bottom: 1rem;
+      font-weight: 600;
+    }
+    
+    .home-feature-card p {
+      color: #616161;
+      font-size: 0.95rem;
+      margin-bottom: 1.25rem;
+      line-height: 1.5;
+    }
+    
+    .home-feature-list {
+      list-style-type: none;
+      padding: 0;
+      margin: 0 0 1.5rem;
+    }
+    
+    .home-feature-list li {
+      position: relative;
+      padding-left: 1.5rem;
+      margin-bottom: 0.5rem;
+      color: #616161;
+      font-size: 0.9rem;
+    }
+    
+    .home-feature-list li:before {
+      content: "•";
+      color: #E53935;
+      font-weight: bold;
+      position: absolute;
+      left: 0.5rem;
+    }
+    
+    .home-feature-timeline {
+      display: flex;
+      align-items: center;
+      margin-top: 1.5rem;
+      padding-top: 1rem;
+      border-top: 1px solid #E0E0E0;
+    }
+    
+    .home-timeline-marker {
+      width: 12px;
+      height: 12px;
+      background-color: #4CAF50;
+      border-radius: 50%;
+      margin-right: 0.75rem;
+    }
+    
+    .home-feature-timeline span {
+      color: #4CAF50;
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+    
+    @media (max-width: 768px) {
+      .home-feature-cards {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .home-feature-card {
+        max-width: 100%;
+      }
+    }
+  </style>
+
+    <section class="trust-banner">
+        <div class="trust-container">
+            <div class="trust-item">
+                <div class="trust-icon">🔒</div>
+                <h3>100% Anonymous</h3>
+                <p>We are committed to preserving the anonimity of your real-world identity, to meet the social need for authenticity, while your voice becomes the voice of the group.</p>
+            </div>
+            <div class="trust-item">
+                <div class="trust-icon">🎯</div>
+                <h3>Zero Algorithms</h3>
+                <p>No manipulation, no echo chambers - just exhuming authenticity to for clean air to to relieve the angst of growing distrust.</p>
+            </div>
+            <div class="trust-item">
+                <div class="trust-icon">🔍</div>
+                <h3>Pure Transparency</h3>
+                <p>To subtley enforce greater opportunity for noncoercive, authentic belonging... to the exent users value participation in a joined voice.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Registration overlay -->
+    <div class="overlay-form" id="register">
+        <div class="form-content">
+            <h2>Join Intersubject</h2>
+            <p class="register-intro">Contribute to a new way of understanding our collective consciousness.</p>
+            <form action="/auth/register" method="POST">
+                <div class="form-group">
+                    <label for="new-username">Username:</label>
+                    <input type="text" id="new-username" name="username" required placeholder="Choose a unique username">
+                </div>
+        
+                <div class="form-group">
+                    <label for="new-password">Password:</label>
+                    <input type="password" id="new-password" name="password" required placeholder="Create a secure password">
+                </div>
+        
+                <div class="form-group">
+                    <label for="email">Email (optional):</label>
+                    <input type="email" id="email" name="email" placeholder="For recovery only (never shared)">
+                </div>
+        
+                <hr>
+                <p style="font-size: 0.9rem; color: #666; margin-top: 1rem;">
+                    <strong>Optional but requested:</strong> These questions help you immediately shape your visible presence in Intersubject. Your answers will be converted into expressions that reflect your identity. You can skip them for now and return to them later. For fields with text input, your words will create or join cohorts directly.
+                </p>
+        
+                <div class="demographic-section">
+                    <h4 class="section-heading">Demographic Identity</h4>
+            
+                    <div class="form-group">
+                        <label>Age Range:</label>
+                        <select name="demographic[age]">
+                            <option value="">-- select --</option>
+                            <option value="Under 18">Under 18</option>
+                            <option value="18–24">18–24</option>
+                            <option value="25–34">25–34</option>
+                            <option value="35–44">35–44</option>
+                            <option value="45–54">45–54</option>
+                            <option value="55–64">55–64</option>
+                            <option value="65+">65+</option>
+                        </select>
+                    </div>
+            
+                    <div class="form-group">
+                        <label>Gender Identity:</label>
+                        <select name="demographic[gender]">
+                            <option value="">-- select --</option>
+                            <option value="Woman">Woman</option>
+                            <option value="Man">Man</option>
+                            <option value="Nonbinary">Nonbinary</option>
+                            <option value="Transgender">Transgender</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+            
+                    <div class="form-group">
+                        <label>Ethnic or Cultural Background:</label>
+                        <select name="demographic[ethnicity]">
+                            <option value="">-- select --</option>
+                            <option value="Black">Black</option>
+                            <option value="Hispanic">Hispanic</option>
+                            <option value="White">White</option>
+                            <option value="Middle Eastern">Middle Eastern</option>
+                            <option value="South Asian">South Asian</option>
+                            <option value="East Asian">East Asian</option>
+                            <option value="Indigenous">Indigenous</option>
+                            <option value="Mixed">Mixed</option>
+                        </select>
+                    </div>
+            
+                    <div class="form-group">
+                        <label>Country/Region:</label>
+                        <input type="text" name="demographic[region]" placeholder="e.g. Jordan, Thailand, Nigeria">
+                    </div>
+            
+                    <div class="form-group">
+                        <label>Languages Spoken:</label>
+                        <input type="text" name="demographic[languages]" placeholder="e.g. English, Spanish">
+                    </div>
+            
+                    <div class="form-group">
+                        <label>Religious or Spiritual Identity:</label>
+                        <select name="demographic[religion]">
+                            <option value="">-- select --</option>
+                            <option value="Christian">Christian</option>
+                            <option value="Muslim">Muslim</option>
+                            <option value="Hindu">Hindu</option>
+                            <option value="Buddhist">Buddhist</option>
+                            <option value="Jewish">Jewish</option>
+                            <option value="Spiritual but not religious">Spiritual but not religious</option>
+                            <option value="Agnostic">Agnostic</option>
+                            <option value="Atheist">Atheist</option>
+                        </select>
+                    </div>
+            
+                    <div class="form-group">
+                        <label>Educational Level:</label>
+                        <select name="demographic[education]">
+                            <option value="">-- select --</option>
+                            <option value="No formal education">No formal education</option>
+                            <option value="High school">High school</option>
+                            <option value="Some college">Some college</option>
+                            <option value="Bachelor's degree">Bachelor's degree</option>
+                            <option value="Master's degree">Master's degree</option>
+                            <option value="Doctorate">Doctorate</option>
+                            <option value="Trade/Technical training">Trade/Technical training</option>
+                        </select>
+                    </div>
+            
+                    <div class="form-group">
+                        <label>Occupation or Work Field:</label>
+                        <input type="text" name="demographic[occupation]" placeholder="e.g. mental health counselor, farmer, poet">
+                    </div>
+            
+                    <h4 class="section-heading">Optional Additions</h4>
+            
+                    <div class="form-group">
+                        <label>Political Alignment (optional):</label>
+                        <input type="text" name="demographic[politics]" placeholder="e.g. Progressive, Centrist, Post-left">
+                    </div>
+            
+                    <div class="form-group">
+                        <label>Sexual Orientation (optional):</label>
+                        <input type="text" name="demographic[orientation]" placeholder="e.g. Gay, Bisexual">
+                    </div>
+                </div>
+        
+                <button type="submit" class="cta-button primary" style="width: 100%;">Create Account</button>
+            </form>
+    
+            <div class="login-option">
+                <p>Already have an account? <button class="text-btn toggle-btn" data-section="login">Log in</button></p>
+            </div>
+        </div>
+    </div>
+</main>
+
+<script src="/js/auth.js"></script>
+<script src="/js/home.js"></script>
+
+<%- include('./partials/footer') %>

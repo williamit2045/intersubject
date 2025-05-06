@@ -1,0 +1,42 @@
+<!-- views/partials/header.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Font: Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+
+    <!-- Base styles that are needed everywhere -->
+    <link rel="stylesheet" href="/css/nav.css">
+    
+    <!-- Common styles for forms and overlays -->
+    <link rel="stylesheet" href="/css/common.css">
+    
+    <!-- Page-specific styles based on pageStyle parameter -->
+    <% if (typeof pageStyle !== 'undefined' && pageStyle && pageStyle !== '') { %>
+        <% if (pageStyle === 'home') { %>
+            <link rel="stylesheet" href="/css/home.css">
+        <% } else if (pageStyle === 'dashboard') { %>
+            <link rel="stylesheet" href="/css/dashboard.css">
+            <link rel="stylesheet" href="/css/results.css">
+        <% } else if (pageStyle === 'trajectories') { %>
+            <link rel="stylesheet" href="/css/trajectories.css">
+        <% } else if (pageStyle === 'about') { %>
+            <link rel="stylesheet" href="/css/about.css">
+        <% } else { %>
+            <!-- Fallback for any other pageStyle values -->
+            <link rel="stylesheet" href="/css/<%= pageStyle %>.css">
+        <% } %>
+    <% } %>
+
+    <style>
+        html, body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+
+    <title><%= title %></title>
+</head>
+<body class="<%= pageStyle || '' %>">

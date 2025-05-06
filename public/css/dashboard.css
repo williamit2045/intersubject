@@ -1,0 +1,1203 @@
+/* public/css/dashboard.css */
+
+/* Import Rajdhani font for titles */
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@600;700&display=swap');
+
+/* Dashboard Container */
+.dashboard-container {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 1.5rem;
+  min-height: 70vh;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  font-size: 16px;
+}
+
+/* Examination Bar */
+.examined-bar {
+  background-color: #f8f8f8;
+  border: 1px solid #e0e0e0;
+  padding: 0.6rem 0.75rem;
+  border-radius: 6px;
+  margin: 0.75rem 0;
+  width: 100%;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+}
+
+/* Expression Cards Grid */
+.expression-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+  width: 100%;
+  padding: 0.4rem;
+  justify-content: flex-start;
+}
+
+/* Results Section */
+.results-section {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+.results-section h3 {
+  color: #333;
+  font-weight: 500;
+  margin-bottom: 0.4rem;
+  font-size: 1.1rem;
+}
+
+.results-count {
+  margin-bottom: 0.6rem;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+/* Expression results list */
+.expressions-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+  margin-bottom: 1.25rem;
+  justify-content: flex-start;
+}
+
+/* ----- SHARED CARD STYLING ----- */
+/* Common styling for both card types */
+.expression-card, .result-item {
+  background-color: #bbdefb;
+  color: #333;
+  border-radius: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  padding: 0.5rem 0.7rem;
+  font-size: 0.9rem;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  transition: all 0.2s ease;
+  position: relative;
+  margin-bottom: 0.2rem;
+  max-width: 800px;
+  min-width: 120px;
+  height: auto;
+  min-height: 3rem;
+}
+
+.expression-card:hover, .result-item:hover {
+  background-color: #e3f2fd;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* User membership styling */
+.expression-card.user-member, .result-item.user-member {
+  background-color: #b9f6ca;
+}
+
+.expression-card.user-member:hover, .result-item.user-member:hover {
+  background-color: #a5d6a7;
+}
+
+/* Text content styling */
+.card-text, .expression-text {
+  font-size: 0.95rem;
+  line-height: 1.4;
+  color: #222;
+  font-weight: 500;
+  cursor: pointer;
+  flex-grow: 1;
+  padding-bottom: 0.4rem;
+  padding-right: 1.4rem;
+  padding-left: 0.4rem;
+}
+
+/* Meta info styling */
+.expression-meta {
+  margin-top: auto;
+  padding-top: 0.3rem;
+  font-size: 0.8rem;
+  color: #222;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.member-count {
+  display: inline-flex;
+  align-items: center;
+  margin-left: 0.2rem;
+}
+
+.member-count:before {
+  content: '';
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  background: #1E88E5;
+  border-radius: 50%;
+  margin-right: 5px;
+}
+
+.user-member .member-count:before {
+  background: #00C853;
+}
+
+/* ----- SPECIFICS FOR EXPRESSION CARDS ONLY ----- */
+/* Expression card specifics */
+.expression-card {
+  padding-right: 25px;
+}
+
+/* The X button to remove expressions */
+.remove-expression {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  background-color: rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  font-size: 0.8rem;
+  color: #666;
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  transition: all 0.2s ease;
+  border-radius: 3px;
+}
+
+.remove-expression:hover {
+  color: #E53935;
+  background-color: rgba(0, 0, 0, 0.1);
+  border-color: rgba(0, 0, 0, 0.2);
+}
+
+/* ----- OTHER UI ELEMENTS ----- */
+/* Empty results */
+.empty-results {
+  text-align: center;
+  padding: 1.5rem;
+  color: #777;
+  background-color: #f5f5f5;
+  border-radius: 6px;
+  margin: 0.75rem 0;
+}
+
+.no-results {
+  font-size: 1rem;
+  margin-bottom: 0.4rem;
+  color: #555;
+  font-weight: 600;
+}
+
+.empty-tip {
+  font-size: 0.85rem;
+  color: #666;
+}
+
+/* Search Section */
+.search-section {
+  width: 100%;
+  margin-bottom: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.search-container {
+  width: 60%;
+  position: relative;
+  margin-bottom: 0.75rem;
+}
+
+#expression-search {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  font-size: 0.95rem;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  background-color: #f5f5f5;
+  color: #333;
+  text-align: center;
+  box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+}
+
+#expression-search:focus {
+  outline: none;
+  border-color: #1E88E5;
+  box-shadow: 0 0 0 2px rgba(30, 136, 229, 0.1);
+}
+
+/* Search dropdown */
+.search-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background-color: #79c7ff;
+  border: 1px solid #bbdefb;
+  border-top: none;
+  border-radius: 0 0 6px 6px;
+  z-index: 10;
+  max-height: 250px;
+  overflow-y: auto;
+  display: none;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.search-result-item {
+  padding: 0.6rem 0.8rem;
+  font-size: 0.9rem;
+  color: #333;
+  cursor: pointer;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  transition: all 0.2s ease;
+}
+
+.search-result-item:hover {
+  background-color: rgb(42, 141, 194);
+  color: #E53935;
+}
+
+/* Pagination */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 1.25rem 0;
+  flex-wrap: wrap;
+}
+
+.page-btn {
+  background-color: #1a1a2e;
+  color: #e0e0e0;
+  border: 1px solid #333;
+  padding: 0.35rem 0.7rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  transition: all 0.2s;
+}
+
+.page-btn:hover {
+  background-color: #222240;
+}
+
+.page-info {
+  color: #666;
+  font-size: 0.85rem;
+}
+
+/* Overlay styling */
+.overlay-form {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(5px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  z-index: 1000;
+}
+
+.overlay-form.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.overlay-form .form-content {
+  background-color: white;
+  color: #333;
+  padding: 1.75rem;
+  border-radius: 0;
+  width: 95%;
+  max-width: 1200px;
+  min-width: 300px;
+  margin: 1rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  border-top: 5px solid #E53935;
+}
+
+.overlay-form .form-content h2 {
+  color: #E53935;
+  margin-bottom: 1.25rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-align: center;
+  font-family: 'Rajdhani', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Position overlay buttons */
+.overlay-actions {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  width: 140px;
+}
+
+/* Style overlay buttons */
+.identify-btn, 
+.disidentify-btn, 
+.add-to-examination-btn, 
+.remove-btn,
+.action-btn {
+  padding: 0.6rem 0.9rem;
+  border: none;
+  border-radius: 4px;
+  font-weight: 500;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-bottom: 0.4rem;
+}
+
+.identify-btn {
+  background-color: #3d81c5;
+  color: white;
+}
+
+.identify-btn:hover {
+  background-color: #266bb1;
+}
+
+.disidentify-btn {
+  background-color: yellow;
+  color: #333;
+}
+
+.disidentify-btn:hover {
+  background-color: #FFD54F;
+}
+
+.remove-btn {
+  background-color: #E53935;
+  color: white;
+}
+
+.remove-btn:hover {
+  background-color: #D32F2F;
+}
+
+.add-to-examination-btn {
+  background-color: #1E88E5;
+  color: white;
+}
+
+.add-to-examination-btn:hover {
+  background-color: #1976D2;
+}
+
+.explore-link {
+  display: block;
+  text-align: center;
+  color: #1E88E5;
+  text-decoration: none;
+  margin-top: 1.25rem;
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+.explore-link:hover {
+  text-decoration: underline;
+  color: #1565C0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .search-container {
+    width: 100%;
+  }
+  
+  .expression-cards {
+    padding: 0.4rem;
+  }
+  
+  .overlay-form .form-content {
+    width: 95%;
+    padding: 1.5rem;
+    margin: 0.5rem;
+  }
+  
+  .overlay-actions {
+    position: static;
+    width: 100%;
+    margin-top: 1.25rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .overlay-form .form-content h2 {
+    font-size: 1.3rem;
+  }
+  
+  .dashboard-container {
+    padding: 1rem;
+  }
+}
+
+/* Loading state styles */
+.loading-spinner {
+  width: 40px;
+  height: 40px;
+  margin: 0 auto 1rem;
+  border-radius: 50%;
+  border: 3px solid rgba(0, 0, 0, 0.1);
+  border-top-color: #1E88E5;
+  animation: spin 1s infinite linear;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.results-loading {
+  text-align: center;
+  padding: 2rem;
+  color: #666;
+}
+
+.expression-card.loading {
+  background-color: #f0f0f0;
+  animation: pulse 1.5s infinite ease-in-out;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+.search-loading, .search-no-results, .search-error {
+  padding: 0.75rem 1rem;
+  text-align: center;
+  color: #666;
+}
+
+.search-error {
+  color: #E53935;
+}
+
+/* Fix the search dropdowns */
+.search-dropdown, #nav-search-results, .search-results-dropdown {
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.search-result-item {
+  padding: 0.6rem 0.8rem;
+  font-size: 0.9rem;
+  color: #333;
+  background-color: #ffffff;
+  cursor: pointer;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  transition: all 0.2s ease;
+}
+
+.search-result-item:hover {
+  background-color: #f5f5f5;
+  color: #E53935;
+}
+
+/* Updated overlay buttons styling */
+.overlay-form .form-content {
+  max-width: 500px;
+  max-height: 80vh;
+}
+
+.overlay-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  width: 100%;
+  margin-top: 1.5rem;
+  position: static;
+}
+
+.identify-btn, 
+.disidentify-btn, 
+.add-to-examination-btn, 
+.remove-btn,
+.explore-btn,
+.explore-link {
+  display: inline-block;
+  text-align: center;
+  padding: 0.75rem 1.5rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+  text-decoration: none;
+  width: 100%;
+  margin-bottom: 0.5rem;
+}
+
+/* Color-coding for buttons */
+.identify-btn {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.identify-btn:hover {
+  background-color: #3d8b40;
+  transform: translateY(-2px);
+  box-shadow: 0 2px 8px rgba(76, 175, 80, 0.3);
+}
+
+.disidentify-btn {
+  background-color: #FFC107;
+  color: #333;
+}
+
+.disidentify-btn:hover {
+  background-color: #FFA000;
+  transform: translateY(-2px);
+  box-shadow: 0 2px 8px rgba(255, 193, 7, 0.3);
+}
+
+.remove-btn {
+  background-color: #E53935;
+  color: white;
+}
+
+.remove-btn:hover {
+  background-color: #D32F2F;
+  transform: translateY(-2px);
+  box-shadow: 0 2px 8px rgba(229, 57, 53, 0.3);
+}
+
+.add-to-examination-btn {
+  background-color: #1E88E5;
+  color: white;
+}
+
+.add-to-examination-btn:hover {
+  background-color: #1976D2;
+  transform: translateY(-2px);
+  box-shadow: 0 2px 8px rgba(30, 136, 229, 0.3);
+}
+
+.explore-btn,
+.explore-link {
+  background-color: #9C27B0;
+  color: white;
+  margin-top: 0;
+}
+
+.explore-btn:hover,
+.explore-link:hover {
+  background-color: #7B1FA2;
+  transform: translateY(-2px);
+  box-shadow: 0 2px 8px rgba(156, 39, 176, 0.3);
+  text-decoration: none;
+}
+
+/* Updated button styling for overlays */
+.overlay-form .overlay-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  width: 100%;
+  margin-top: 1.5rem;
+  position: static; /* Ensure it doesn't use absolute positioning */
+}
+
+/* Style all buttons and links in overlays to match "Sign In" style */
+.overlay-form .identify-btn,
+.overlay-form .disidentify-btn,
+.overlay-form .add-to-examination-btn,
+.overlay-form .remove-btn,
+.overlay-form .explore-btn,
+.overlay-form a.explore-link {
+  display: inline-block;
+  text-align: center;
+  padding: 0.75rem 1.5rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+  text-decoration: none;
+  width: 100%;
+  margin-bottom: 0.5rem;
+}
+
+/* Color-coding for buttons */
+.overlay-form .identify-btn {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.overlay-form .identify-btn:hover {
+  background-color: #3d8b40;
+  transform: translateY(-2px);
+  box-shadow: 0 2px 8px rgba(76, 175, 80, 0.3);
+}
+
+.overlay-form .disidentify-btn {
+  background-color: #FFC107;
+  color: #333;
+}
+
+.overlay-form .disidentify-btn:hover {
+  background-color: #FFA000;
+  transform: translateY(-2px);
+  box-shadow: 0 2px 8px rgba(255, 193, 7, 0.3);
+}
+
+.overlay-form .remove-btn {
+  background-color: #E53935;
+  color: white;
+}
+
+.overlay-form .remove-btn:hover {
+  background-color: #D32F2F;
+  transform: translateY(-2px);
+  box-shadow: 0 2px 8px rgba(229, 57, 53, 0.3);
+}
+
+.overlay-form .add-to-examination-btn {
+  background-color: #1E88E5;
+  color: white;
+}
+
+.overlay-form .add-to-examination-btn:hover {
+  background-color: #1976D2;
+  transform: translateY(-2px);
+  box-shadow: 0 2px 8px rgba(30, 136, 229, 0.3);
+}
+
+.overlay-form .explore-btn,
+.overlay-form a.explore-link {
+  background-color: #9C27B0;
+  color: white;
+  margin-top: 0;
+}
+
+.overlay-form .explore-btn:hover,
+.overlay-form a.explore-link:hover {
+  background-color: #7B1FA2;
+  transform: translateY(-2px);
+  box-shadow: 0 2px 8px rgba(156, 39, 176, 0.3);
+  text-decoration: none;
+}
+
+/* Fix the form content sizing */
+.overlay-form .form-content {
+  max-width: 500px;
+  max-height: 80vh;
+}
+
+/* Consolidated Overlay Styling */
+.overlay-form {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(5px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+
+.overlay-form.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.overlay-form .form-content {
+  background-color: white;
+  color: #333;
+  padding: 2rem;
+  border-radius: 8px;
+  width: 500px; /* Wider fixed width */
+  max-width: 90vw;
+  min-height: 300px; /* Taller minimum height */
+  margin: 1rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  max-height: 85vh;
+  overflow-y: auto;
+  position: relative;
+}
+
+/* Standardized button styling */
+.overlay-form .identify-btn,
+.overlay-form .disidentify-btn,
+.overlay-form .add-to-examination-btn,
+.overlay-form .remove-btn,
+.overlay-form .explore-btn,
+.overlay-form a.explore-link {
+  display: block;
+  width: 100%;
+  padding: 1rem 1.5rem;
+  margin-bottom: 0.8rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-align: center;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+}
+
+/* Softer color palette for buttons */
+.overlay-form .identify-btn {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.overlay-form .identify-btn:hover {
+  background-color: #3d8b40;
+}
+
+.overlay-form .disidentify-btn {
+  background-color: #FFCA28; /* Softer yellow */
+  color: #333;
+}
+
+.overlay-form .disidentify-btn:hover {
+  background-color: #FFB300;
+}
+
+.overlay-form .remove-btn {
+  background-color: #F44336; /* Softer red */
+  color: white;
+}
+
+.overlay-form .remove-btn:hover {
+  background-color: #E53935;
+}
+
+.overlay-form .explore-btn,
+.overlay-form a.explore-link {
+  background-color: #9C27B0; /* Softer purple */
+  color: white;
+}
+
+.overlay-form .explore-btn:hover,
+.overlay-form a.explore-link:hover {
+  background-color: #8E24AA;
+}
+
+.overlay-form .add-to-examination-btn {
+  background-color: #2196F3; /* Softer blue */
+  color: white;
+}
+
+.overlay-form .add-to-examination-btn:hover {
+  background-color: #1E88E5;
+}
+
+/* Cohort title styling */
+.overlay-form h2 {
+  font-size: 1.4rem;
+  margin-bottom: 1.5rem;
+  color: #333;
+  text-align: center;
+  word-wrap: break-word;
+}
+
+/* Member count styling */
+.overlay-form p {
+  margin-bottom: 1.5rem;
+  text-align: center;
+  color: #666;
+}
+
+/* Universal badge styling */
+.universal-badge {
+  display: inline-block;
+  background-color: #2196F3;
+  color: white;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  margin-right: 0.5rem;
+}
+
+/* Responsiveness for different screen sizes */
+@media (max-width: 768px) {
+  .overlay-form .form-content {
+    width: 90%;
+    padding: 1.5rem;
+  }
+}
+
+/* Badge styling */
+.cohort-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.15rem 0.4rem;
+  border-radius: 4px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-right: 0.4rem;
+}
+
+.universal-badge {
+  background-color: #FFC107;
+  color: #333;
+}
+
+.demographic-badge {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.question-badge {
+  background-color: #9C27B0;
+  color: white;
+}
+
+/* Adjust member count styling */
+.member-count {
+  display: inline-flex;
+  align-items: center;
+  margin-left: 0.2rem;
+}
+
+.member-count:before {
+  content: '';
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  background: #1E88E5;
+  border-radius: 50%;
+  margin-right: 5px;
+}
+
+/* Badge styling */
+.cohort-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.15rem 0.4rem;
+  border-radius: 4px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-right: 0.4rem;
+}
+
+.universal-badge {
+  background-color: #FFC107;
+  color: #333;
+}
+
+.demographic-badge {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.question-badge {
+  background-color: #9C27B0;
+  color: white;
+}
+
+/* Adjust member count styling */
+.member-count {
+  display: inline-flex;
+  align-items: center;
+  margin-left: 0.2rem;
+}
+
+.member-count:before {
+  content: '';
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  background: #1E88E5;
+  border-radius: 50%;
+  margin-right: 5px;
+}
+
+/* Overlap detail styling */
+.overlap-detail {
+  display: inline-block;
+  margin-left: 0.5rem;
+  font-size: 0.9rem;
+  color: #1a8a54;
+}
+
+/* Cohort overlay styling for dashboard.ejs and results.ejs */
+.overlay-form {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(5px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+
+.overlay-form.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.overlay-form .form-content {
+  background-color: white;
+  color: #333;
+  padding: 2.5rem;
+  border-radius: 0; /* Sharp corners maintained */
+  width: 600px; /* Wider */
+  max-width: 90vw;
+  min-height: 380px; /* Taller */
+  margin: 1rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  max-height: 85vh;
+  overflow-y: auto;
+  position: relative;
+  border-top: 5px solid #E53935;
+}
+
+/* Overlay contents */
+.overlay-form h2 {
+  color: #E53935;
+  font-size: 1.5rem;
+  margin-bottom: 1.8rem;
+  text-align: center;
+  font-weight: 700;
+  word-wrap: break-word;
+  font-family: 'Rajdhani', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.overlay-form p {
+  margin-bottom: 2rem;
+  text-align: center;
+  color: #555;
+  font-size: 1.05rem;
+}
+
+/* Overlay buttons */
+.overlay-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  width: 100%;
+  margin-top: 2rem;
+  position: static;
+}
+
+.overlay-form .identify-btn,
+.overlay-form .disidentify-btn,
+.overlay-form .add-to-examination-btn,
+.overlay-form .remove-btn,
+.overlay-form .explore-btn,
+.overlay-form a.explore-link {
+  display: block;
+  width: 100%;
+  padding: 1rem 1.5rem;
+  margin-bottom: 0.75rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-align: center;
+  border: none;
+  border-radius: 4px; /* Sharper corners */
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+}
+
+/* Button colors */
+.overlay-form .identify-btn {
+  background-color: #43A047;
+  color: white;
+}
+
+.overlay-form .identify-btn:hover {
+  background-color: #388E3C;
+}
+
+.overlay-form .disidentify-btn {
+  background-color: #FFB300;
+  color: #333;
+}
+
+.overlay-form .disidentify-btn:hover {
+  background-color: #FFA000;
+}
+
+.overlay-form .remove-btn {
+  background-color: #E53935;
+  color: white;
+}
+
+.overlay-form .remove-btn:hover {
+  background-color: #D32F2F;
+}
+
+.overlay-form .explore-btn,
+.overlay-form a.explore-link {
+  background-color: #8E24AA;
+  color: white;
+}
+
+.overlay-form .explore-btn:hover,
+.overlay-form a.explore-link:hover {
+  background-color: #7B1FA2;
+  text-decoration: none;
+}
+
+.overlay-form .add-to-examination-btn {
+  background-color: #1E88E5;
+  color: white;
+}
+
+.overlay-form .add-to-examination-btn:hover {
+  background-color: #1976D2;
+}
+
+/* Badge styling */
+.universal-badge {
+  display: inline-block;
+  background-color: #FFC107;
+  color: #333;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  margin-right: 0.5rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .overlay-form .form-content {
+    width: 95%;
+    padding: 1.5rem;
+  }
+}
+
+/* Add to dashboard.css */
+.cohort-badge {
+  display: inline-flex;
+  align-items: center;
+  margin-right: 0.6rem;
+  font-size: 0.75rem;
+  padding: 0.1rem 0.35rem;
+  border-radius: 3px;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.universal-badge {
+  background-color: #ffd600;
+  color: #333;
+}
+
+.question-badge {
+  background-color: #e91e63;
+  color: white;
+}
+
+.value-badge {
+  background-color: #4caf50;
+  color: white;
+}
+
+.belief-badge {
+  background-color: #2196f3;
+  color: white;
+}
+
+/* Add this to dashboard.css */
+.expression-card .expression-meta .cohort-badge {
+  display: inline-flex !important;
+  align-items: center !important;
+  padding: 0.15rem 0.4rem !important;
+  border-radius: 4px !important;
+  font-size: 0.7rem !important;
+  font-weight: 600 !important;
+  text-transform: uppercase !important;
+  margin-right: 0.4rem !important;
+}
+
+.expression-card .expression-meta .universal-badge {
+  background-color: #FFC107 !important;
+  color: #333 !important;
+}
+
+/* Updated overlay buttons styling */
+.overlay-form .identify-btn,
+.overlay-form .disidentify-btn,
+.overlay-form .add-to-examination-btn,
+.overlay-form .remove-btn,
+.overlay-form .explore-btn,
+.overlay-form a.explore-link {
+  display: block;
+  width: 100%;
+  padding: 0.75rem 1.5rem;
+  margin-bottom: 0.5rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-align: center;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  box-sizing: border-box;
+}
+
+/* Fix inconsistent styling by ensuring these have the same display properties */
+.overlay-form a.explore-link {
+  margin-top: 0; /* Remove any top margin that might be causing spacing issues */
+  display: block;
+  width: 100%; /* Ensure full width */
+  box-sizing: border-box;
+}
+
+/* Ensure consistent colors for the explore buttons */
+.overlay-form .explore-btn,
+.overlay-form a.explore-link {
+  background-color: #9C27B0;
+  color: white;
+}
+
+.overlay-form .explore-btn:hover,
+.overlay-form a.explore-link:hover {
+  background-color: #7B1FA2;
+  transform: translateY(-2px);
+  box-shadow: 0 2px 8px rgba(156, 39, 176, 0.3);
+  text-decoration: none;
+}

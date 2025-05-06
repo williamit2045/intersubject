@@ -1,0 +1,384 @@
+/* public/css/nav.css */
+
+/* Import Rajdhani font for titles */
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@600;700&display=swap');
+
+/* Base Navigation Styling */
+.nav-bar {
+  background-color: #1E88E5;
+  width: 100%;
+  padding: 0.5rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  border-bottom: 3px solid #E53935;
+}
+
+.nav-container {
+  display: flex;
+  align-items: center;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 0.75rem;
+}
+
+/* Logo styling */
+.nav-logo {
+  display: flex;
+  align-items: center;
+  margin-right: 0.75rem;
+}
+
+.nav-logo svg {
+  color: white;
+  width: 34px;
+  height: 34px;
+  transition: color 0.2s ease;
+}
+
+.nav-logo:hover svg {
+  color: yellow;
+}
+
+/* Top navigation section with search */
+.nav-top {
+  display: flex;
+  align-items: center;
+  flex: 1;
+}
+
+/* Search container and input */
+.nav-search {
+  position: relative;
+  width: 100%;
+}
+
+.search-container {
+  flex: 1;
+  position: relative;
+  max-width: 700px;
+}
+
+.nav-search .search-input {
+  width: 100%;
+  padding: 0.6rem 1rem;
+  font-size: 0.95rem;
+  background-color: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 6px;
+  color: white;
+  transition: all 0.2s ease;
+}
+
+.nav-search .search-input:focus {
+  outline: none;
+  background-color: rgba(255, 255, 255, 0.25);
+  border-color: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.1);
+}
+
+.nav-search .search-input::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* Search results dropdown */
+#nav-search-results {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background-color: lightblue;
+  border-radius: 0 0 6px 6px;
+  z-index: 1000;
+  display: none;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-top: none;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.search-result-item {
+  padding: 8px 12px;
+  cursor: pointer;
+  color: #E53935;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+}
+
+.search-result-item:hover {
+  background-color: #486acf;
+  color: white;
+}
+
+/* Navigation links */
+.nav-links {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links li {
+  display: inline-flex;
+  margin-left: 0.75rem;
+}
+
+.nav-links li a,
+.nav-links li button:not(.toggle-btn) {
+  padding: 0.5rem 0.7rem;
+  font-size: 0.95rem;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: color 0.2s ease;
+  font-weight: 500;
+}
+
+.nav-links li a:hover,
+.nav-links li button:not(.toggle-btn):hover {
+  text-decoration: underline;
+}
+
+.nav-links a.active {
+  color: white;
+  font-weight: 600;
+  position: relative;
+}
+
+.nav-links a.active:after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 16px;
+  height: 2px;
+  background-color: #E53935;
+  border-radius: 2px;
+}
+
+/* Toggle button styling */
+.nav-links .toggle-btn {
+  background: #52e697;
+  color: #333;
+  border: none;
+  padding: 0.5rem 0.9rem;
+  border-radius: 50px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 6px rgba(229, 57, 53, 0.2);
+}
+
+.nav-links .toggle-btn:hover {
+  background: #D32F2F;
+}
+
+/* Create Cohort button */
+#express-btn {
+  color: #333;
+  padding: 0.5rem 1rem;
+  border-radius: 50px;
+  border: none;
+  font-size: 0.95rem;
+  font-weight: 600;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#express-btn:hover {
+  background-color: #E53935;
+}
+
+/* Overlay styling - For nav.ejs overlays only */
+.nav-bar + .overlay, 
+#express, 
+#login {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(5px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  z-index: 1000;
+}
+
+.nav-bar + .overlay.active, 
+#express.active, 
+#login.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Form content styling for nav overlays */
+#express .form-content,
+#login .form-content {
+  background-color: white;
+  color: #2C3E50;
+  padding: 1.75rem;
+  border-radius: 0;
+  width: 85%;
+  max-width: 450px;
+  min-width: 300px;
+  margin: 1.5rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  max-height: 85vh;
+  overflow-y: auto;
+  position: relative;
+  border-top: 5px solid #E53935;
+}
+
+/* Use Rajdhani font for overlay titles */
+#express .form-content h2,
+#login .form-content h2 {
+  color: #E53935;
+  margin-bottom: 1.25rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-align: center;
+  font-family: 'Rajdhani', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Button styling for nav overlay forms */
+#express .form-content button.btn,
+#login .form-content button.btn {
+  background: linear-gradient(135deg, #E53935, #D32F2F);
+  color: white;
+  border: none;
+  padding: 0.75rem 1.25rem;
+  border-radius: 50px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 1rem;
+  width: 100%;
+}
+
+#express .form-content button.btn:hover,
+#login .form-content button.btn:hover {
+  background: linear-gradient(135deg, #D32F2F, #C62828);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(229, 57, 53, 0.3);
+}
+
+/* Mobile responsiveness */
+@media (max-width: 900px) {
+  .nav-container {
+    flex-wrap: wrap;
+  }
+  
+  .nav-top {
+    order: 1;
+    width: 100%;
+    margin-bottom: 0.5rem;
+  }
+  
+  .nav-links {
+    order: 2;
+    width: 100%;
+    justify-content: flex-end;
+  }
+}
+
+@media (max-width: 768px) {
+  .nav-container {
+    padding: 0 0.5rem;
+  }
+  
+  .nav-links {
+    justify-content: space-between;
+    width: 100%;
+  }
+  
+  .nav-links li {
+    margin-left: 0;
+    margin-right: 0.4rem;
+  }
+  
+  .nav-links li:last-child {
+    margin-right: 0;
+  }
+  
+  #express .form-content,
+  #login .form-content {
+    width: 90%;
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav-bar {
+    padding: 0.4rem 0;
+  }
+  
+  .nav-top {
+    margin-bottom: 0.4rem;
+  }
+  
+  .nav-links {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .nav-links li {
+    margin: 0.2rem 0.25rem;
+  }
+  
+  #express .form-content,
+  #login .form-content {
+    padding: 1.25rem;
+  }
+  
+  #express .form-content h2,
+  #login .form-content h2 {
+    font-size: 1.4rem;
+  }
+}
+
+/* Search results dropdown fix */
+.search-results-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background-color: #ffffff;
+  border-radius: 0 0 8px 8px;
+  z-index: 1000;
+  display: none;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e0e0e0;
+}
+
+#nav-search-results {
+  background-color: #ffffff;
+}
+
+.search-result-item {
+  padding: 10px 15px;
+  cursor: pointer;
+  color: #333;
+  background-color: #ffffff;
+}
+
+.search-result-item:hover {
+  background-color: #f5f5f5;
+  color: #E53935;
+}

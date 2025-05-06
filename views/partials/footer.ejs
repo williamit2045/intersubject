@@ -1,0 +1,131 @@
+<footer class="site-footer">
+  <div class="footer-container">
+      <ul class="footer-links">
+          <li><a href="/about">About</a></li>
+          <li><a href="/contact">Contact</a></li>
+          <li><a href="/trajectories">Development Trajectories</a></li>
+      </ul>
+      
+      <p class="copyright">&copy; 2025 Globethoughts. All rights reserved.</p>
+  </div>
+</footer>
+</body>
+</html>
+
+<style>
+.site-footer {
+  background-color: #1E88E5;
+  border-top: 3px solid #E53935;
+  padding: 1.2rem 0;
+  width: 100%;
+  position: relative;
+  bottom: 0;
+  left: 0;
+  z-index: 10;
+}
+
+.footer-container {
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  text-align: center;
+}
+
+.footer-links {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 2.5rem;
+  padding: 0;
+  margin: 0 0 1rem;
+}
+
+.footer-links li a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1.05rem;
+  padding: 0.5rem 0;
+  position: relative;
+  transition: color 0.2s ease;
+}
+
+.footer-links li a:hover {
+  color: #E53935;
+}
+
+.footer-links li a:after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #E53935;
+  transition: width 0.2s ease;
+}
+
+.footer-links li a:hover:after {
+  width: 100%;
+}
+
+.copyright {
+  margin-top: 0.75rem;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.95rem;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .footer-links {
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer-links {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .site-footer {
+    padding: 1rem 0;
+  }
+}
+</style>
+
+<!-- Dashboard-specific footer styles -->
+<style>
+/* General page structure */
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Ensure main content takes available space */
+.dashboard-container, .home-main, main {
+  flex: 1 0 auto;
+}
+
+/* Dashboard-specific footer positioning */
+.results-section {
+  margin-bottom: 2rem; /* Add space before footer */
+  padding-bottom: 2rem;
+}
+
+/* Add pagination margin */
+.pagination {
+  margin-bottom: 2.5rem;
+}
+
+/* Make sure footer stays at bottom */
+body > .site-footer {
+  flex-shrink: 0;
+}
+</style>

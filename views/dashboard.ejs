@@ -1,0 +1,587 @@
+<%- include('./partials/header', { title: title }) %>
+<%- include('./partials/nav') %>
+<% console.log("Expression data:", JSON.stringify(forExamination)); %>
+
+<main class="dashboard-container">
+  <!-- Expression Cards -->
+  <section class="examined-bar">
+    <div class="expression-cards">
+      <% if (forExamination && forExamination.length > 0) { %>
+        <% forExamination.forEach(expression => { %>
+          <div class="expression-card <%= expression.isUserMember ? 'user-member' : '' %>" 
+            data-expression-id="<%= expression.id %>" 
+            data-section="card-details-<%= expression.id %>">
+              <span class="card-text"><%= 
+                expression.text.length > 100 
+                  ? expression.text.substring(0, 100) + '...' 
+                  : expression.text 
+              %></span>
+
+              <div class="expression-meta">
+  <% 
+    let badgeHtml = '';
+    if (expression.set === 'universal' || expression.set === true) {
+      badgeHtml = '<span class="cohort-badge universal-badge">UNIVERSAL</span>';
+    } else if (expression.set && typeof expression.set === 'string') {
+      badgeHtml = `<span class="cohort-badge ${expression.set.toLowerCase()}-badge">${expression.set.toUpperCase()}</span>`;
+    }
+  %>
+  <%= badgeHtml %>
+  <span class="member-count"><%= expression.memberCount || 0 %> members</span>
+</div>
+              <button class="remove-expression">×</button>
+          </div>
+        <% }); %>
+      </div>
+    </section>
+    <% } %> 
+  
+  <!-- Search Section with Filter Options -->
+  <section class="search-section">
+    <div class="search-container">
+      <input type="text" id="expression-search" placeholder="Search and add cohorts to examination...">
+      <div id="search-results" class="search-dropdown"></div>
+    </div>
+    
+    <!-- Replace the existing filter-options div with this one -->
+<div class="filter-options">
+  <label class="filter-option">
+    <input type="checkbox" id="filter-universals" checked>
+    Filter universals from results
+  </label>
+  
+  <button class="dash-roadmap-btn" id="show-roadmap">
+    <span class="dash-roadmap-icon">🔮</span>
+    <span class="dash-roadmap-text">See what's Coming Soon</span>
+  </button>
+</div>
+
+<!-- Add this CSS to modify the filter-options styling -->
+<style>
+  /* Update filter options to include roadmap button */
+  .filter-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
+    background-color: #f8f8f8;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    border: 1px solid #e0e0e0;
+  }
+  
+  .filter-option {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-size: 0.9rem;
+  }
+  
+  .filter-option input {
+    margin-right: 0.5rem;
+  }
+  
+  /* Make the roadmap button smaller to fit in the filter options bar */
+  .dash-roadmap-btn {
+    background-color: #1E88E5;
+    color: white;
+    border: none;
+    border-radius: 16px;
+    padding: 0.35rem 0.8rem;
+    font-size: 0.85rem;
+    font-weight: 500;
+    cursor: pointer;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    margin: 0; /* Remove the margin we had before */
+  }
+  
+  .dash-roadmap-btn:hover {
+    background-color: #1976D2;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+  }
+  
+  .dash-roadmap-icon {
+    font-size: 1rem;
+    margin-right: 0.4rem;
+  }
+  
+  .dash-roadmap-text {
+    font-size: 0.85rem;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .filter-options {
+      flex-direction: column;
+      gap: 0.75rem;
+      align-items: flex-start;
+    }
+    
+    .dash-roadmap-btn {
+      align-self: flex-end;
+      padding-left: 2rem;
+    }
+  }
+</style>
+  </section>
+
+
+<!-- Public Dashboard Roadmap Overlay -->
+<div class="overlay-form dash-roadmap-overlay" id="public-roadmap-overlay">
+  <div class="form-content">
+    <h2>Coming Soon to Public Dashboard</h2>
+    
+    <div class="dash-roadmap-container">
+      <div class="dash-roadmap-item">
+        <div class="dash-roadmap-item-icon">🏷️</div>
+        <div class="dash-roadmap-content">
+          <h3>Cohort Categorization System</h3>
+          <p>A comprehensive framework categorizing cohorts as beliefs, values, identities, or questions</p>
+          <ul class="dash-roadmap-features">
+            <li>Filter and explore based on cohort types and domains</li>
+            <li>Discover cohorts related by semantic meaning beyond just shared users</li>
+            <li>Intuitive navigation through different categories of human expression</li>
+          </ul>
+          <div class="dash-progress-indicator">
+            <div class="dash-progress-bar" style="width: 40%;"></div>
+            <span>40% Complete</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="dash-roadmap-item">
+        <div class="dash-roadmap-item-icon">📊</div>
+        <div class="dash-roadmap-content">
+          <h3>Interactive Network Visualization</h3>
+          <p>See cohort relationships through dynamic visualizations</p>
+          <ul class="dash-roadmap-features">
+            <li>Explore connection strength between different cohorts</li>
+            <li>Identify bridge cohorts that connect different groups</li>
+            <li>Discover communities and clusters through visual analysis</li>
+          </ul>
+          <div class="dash-progress-indicator">
+            <div class="dash-progress-bar" style="width: 25%;"></div>
+            <span>25% Complete</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="dash-roadmap-item">
+        <div class="dash-roadmap-item-icon">❓</div>
+        <div class="dash-roadmap-content">
+          <h3>Question-Answer Framework</h3>
+          <p>Special cohort types for questions with linked answer cohorts</p>
+          <ul class="dash-roadmap-features">
+            <li>Explore what questions different groups are asking</li>
+            <li>See how answers distribute across different populations</li>
+            <li>Create your own questions and monitor emerging answers</li>
+          </ul>
+          <div class="dash-progress-indicator">
+            <div class="dash-progress-bar" style="width: 50%;"></div>
+            <span>50% Complete</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <button class="dash-close-overlay">Close</button>
+  </div>
+</div>
+
+<!-- Personal Dashboard Roadmap Overlay -->
+<div class="overlay-form dash-roadmap-overlay" id="personal-roadmap-overlay">
+  <div class="form-content">
+    <h2>Coming Soon to Personal Dashboard</h2>
+    
+    <div class="dash-roadmap-container">
+      <div class="dash-roadmap-item">
+        <div class="dash-roadmap-item-icon">📌</div>
+        <div class="dash-roadmap-content">
+          <h3>Saved Cohort Sets</h3>
+          <p>Create and name combinations of cohorts for repeated examination</p>
+          <ul class="dash-roadmap-features">
+            <li>Get notifications when significant changes occur in your saved sets</li>
+            <li>Compare multiple saved sets to identify patterns</li>
+            <li>Share anonymized cohort sets with others</li>
+          </ul>
+          <div class="dash-progress-indicator">
+            <div class="dash-progress-bar" style="width: 75%;"></div>
+            <span>75% Complete</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="dash-roadmap-item">
+        <div class="dash-roadmap-item-icon">📈</div>
+        <div class="dash-roadmap-content">
+          <h3>Personal Insight Analytics</h3>
+          <p>Analyze contradictions or coherence in your cohort memberships</p>
+          <ul class="dash-roadmap-features">
+            <li>See privately how your cohort memberships compare to broader populations</li>
+            <li>Track your own cohort evolution over time</li>
+            <li>Discover surprising patterns in your self-representation</li>
+          </ul>
+          <div class="dash-progress-indicator">
+            <div class="dash-progress-bar" style="width: 30%;"></div>
+            <span>30% Complete</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="dash-roadmap-item">
+        <div class="dash-roadmap-item-icon">✨</div>
+        <div class="dash-roadmap-content">
+          <h3>Recommended Cohorts</h3>
+          <p>Discover cohorts likely to be relevant based on your existing memberships</p>
+          <ul class="dash-roadmap-features">
+            <li>Explore the "adjacent possible" of your identity map</li>
+            <li>Find unexpected connections you might otherwise miss</li>
+            <li>Expand your self-understanding through guided discovery</li>
+          </ul>
+          <div class="dash-progress-indicator">
+            <div class="dash-progress-bar" style="width: 45%;"></div>
+            <span>45% Complete</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <button class="dash-close-overlay">Close</button>
+  </div>
+</div>
+
+<!-- Add this CSS to the existing <style> block or add a new one -->
+<style>
+  /* Dashboard Roadmap Button */
+  .dash-roadmap-btn {
+    display: flex;
+    align-items: center;
+    background-color: #1E88E5;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    margin: 1rem 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: all 0.2s ease;
+  }
+  
+  .dash-roadmap-btn:hover {
+    background-color: #1976D2;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  }
+  
+  .dash-roadmap-icon {
+    font-size: 1.2rem;
+    margin-right: 0.5rem;
+  }
+  
+  .dash-roadmap-text {
+    font-size: 0.9rem;
+  }
+  
+  /* Dashboard Roadmap Overlay Styling */
+  .dash-roadmap-overlay {
+    /* Note: Most overlay styling comes from overlay-form which already exists */
+    /* This class adds specificity for any dashboard-specific overlay styles */
+  }
+  
+  .dash-roadmap-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin: 1.5rem 0;
+  }
+  
+  .dash-roadmap-item {
+    display: flex;
+    gap: 1rem;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    padding: 1.25rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  .dash-roadmap-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  .dash-roadmap-item-icon {
+    font-size: 2rem;
+    min-width: 3rem;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    color: #1E88E5;
+  }
+  
+  .dash-roadmap-content {
+    flex: 1;
+  }
+  
+  .dash-roadmap-content h3 {
+    color: #1E88E5;
+    margin: 0 0 0.75rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+  }
+  
+  .dash-roadmap-content p {
+    color: #616161;
+    margin: 0 0 1rem;
+    font-size: 0.95rem;
+    line-height: 1.4;
+  }
+  
+  .dash-roadmap-features {
+    list-style-type: none;
+    padding: 0;
+    margin: 0 0 1.25rem;
+  }
+  
+  .dash-roadmap-features li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: #616161;
+    font-size: 0.9rem;
+    line-height: 1.3;
+  }
+  
+  .dash-roadmap-features li:before {
+    content: "•";
+    color: #E53935;
+    position: absolute;
+    left: 0.5rem;
+    font-weight: bold;
+  }
+  
+  .dash-progress-indicator {
+    background-color: #f0f0f0;
+    height: 8px;
+    border-radius: 4px;
+    overflow: hidden;
+    position: relative;
+    margin-top: 0.75rem;
+  }
+  
+  .dash-progress-bar {
+    height: 100%;
+    background: linear-gradient(to right, #1E88E5, #64B5F6);
+    border-radius: 4px;
+  }
+  
+  .dash-progress-indicator span {
+    position: absolute;
+    right: 0;
+    top: -1.5rem;
+    font-size: 0.8rem;
+    color: #1E88E5;
+    font-weight: 600;
+  }
+  
+  .dash-close-overlay {
+    display: block;
+    width: 100%;
+    background-color: #E53935;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 0.75rem;
+    margin-top: 1.5rem;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  
+  .dash-close-overlay:hover {
+    background-color: #D32F2F;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .dash-roadmap-item {
+      flex-direction: column;
+    }
+    
+    .dash-roadmap-item-icon {
+      margin-bottom: 1rem;
+    }
+  }
+</style>
+
+<!-- Add this script before the </main> tag -->
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const roadmapBtn = document.getElementById('show-roadmap');
+    const publicRoadmapOverlay = document.getElementById('public-roadmap-overlay');
+    const personalRoadmapOverlay = document.getElementById('personal-roadmap-overlay');
+    const closeButtons = document.querySelectorAll('.dash-close-overlay');
+    
+    if (roadmapBtn) { // Check if button exists first
+      // Check the current URL to determine which dashboard we're on
+      const isPersonalDashboard = window.location.pathname.includes('/personal');
+      
+      roadmapBtn.addEventListener('click', function() {
+        if (isPersonalDashboard) {
+          personalRoadmapOverlay.classList.add('active');
+        } else {
+          publicRoadmapOverlay.classList.add('active');
+        }
+      });
+      
+      // Close button functionality
+      closeButtons.forEach(button => {
+        button.addEventListener('click', function() {
+          publicRoadmapOverlay.classList.remove('active');
+          personalRoadmapOverlay.classList.remove('active');
+        });
+      });
+      
+      // Close when clicking outside content
+      document.addEventListener('click', function(event) {
+        if (event.target === publicRoadmapOverlay) {
+          publicRoadmapOverlay.classList.remove('active');
+        }
+        if (event.target === personalRoadmapOverlay) {
+          personalRoadmapOverlay.classList.remove('active');
+        }
+      });
+    }
+  });
+</script>
+  
+  <!-- Results placeholder - will be populated by results.ejs via JavaScript -->
+  <section class="results-section" id="results-container">
+    <!-- Initial empty state message -->
+    <div class="empty-results">
+      <div class="no-results">No related expressions found</div>
+      <p class="empty-tip">Try adding expressions to examine their relationships</p>
+    </div>
+  </section>
+  
+  <!-- Expression Card Detail Overlays -->
+<% if (forExamination && forExamination.length > 0) { %>
+  <% forExamination.forEach(expression => { %>
+    <div class="overlay-form" id="card-details-<%= expression.id %>">
+      <div class="form-content">
+        <h2><%= expression.text %></h2>
+        <p class="overlay-member-count">
+          <% 
+            let setName = '';
+            let setClass = '';
+            if (typeof expression.set === 'string') {
+              setName = expression.set;
+              setClass = expression.set.toLowerCase();
+            } else if (expression.set === true) {
+              setName = 'UNIVERSAL';
+              setClass = 'universal';
+            } else {
+              setName = 'UNKNOWN';
+              setClass = 'unknown';
+            }
+          %>
+          <% if (expression.set) { %>
+            <span class="cohort-badge <%= setClass %>-badge"><%= setName %></span>
+          <% } %>
+          <%= expression.memberCount || 0 %> members identify with this expression
+        </p>
+        <div class="overlay-actions">
+          <% if (user) { %>
+            <% if (expression.isUserMember) { %>
+              <button class="disidentify-btn" data-id="<%= expression.id %>" data-text="<%= expression.text %>">
+                Disidentify
+              </button>
+            <% } else { %>
+              <button class="identify-btn" data-id="<%= expression.id %>" data-text="<%= expression.text %>">
+                Identify
+              </button>
+            <% } %>
+          <% } %>
+          <button class="remove-btn" data-id="<%= expression.id %>">Remove from examination</button>
+          <a href="/explore/<%= expression.id %>" class="explore-link">
+            Explore this cohort in a new dashboard
+          </a>
+        </div>
+      </div>
+    </div>
+  <% }); %>
+<% } %>
+
+</main>
+
+<style>
+  /* Filter options styling */
+  .filter-options {
+    display: flex;
+    justify-content: center;
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+    gap: 2rem;
+  }
+  
+  .filter-option {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    background-color: #f0f0f0;
+    transition: background-color 0.2s ease;
+  }
+  
+  .filter-option:hover {
+    background-color: #e6e6e6;
+  }
+  
+  .filter-option input {
+    margin-right: 0.5rem;
+  }
+
+  /* Badge styles */
+  .cohort-badge {
+    display: inline-block;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 0.7rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-right: 8px;
+  }
+
+  .universal-badge {
+    background-color: #FFB300;
+    color: #000;
+  }
+
+  .unknown-badge {
+    background-color: #9E9E9E;
+    color: #FFF;
+  }
+
+  .demographic-badge {
+    background-color: #4CAF50;
+    color: #fff;
+  }
+
+  .personal-badge {
+    background-color: #2196F3;
+    color: #fff;
+  }
+</style>
+
+<script src="/js/dashboard.js"></script>
+
+<%- include('./partials/footer') %>
