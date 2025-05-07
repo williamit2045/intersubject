@@ -159,15 +159,17 @@ body {
     justify-content: center;
 }
 
+
+/* Adjusted orbit paths to extend about 30% further from center */
 .circle-1 {
     width: 120px;
     height: 120px;
     background: rgba(30, 136, 229, 0.2);
     border: 2px solid var(--primary-blue);
     left: 50%;
-    top: 10%;
+    top: 50%;
     transform: translate(-50%, -50%);
-    animation: orbit-path-1 8s linear infinite;
+    animation: orbit-path-1 12s linear infinite;
 }
 
 .circle-2 {
@@ -175,10 +177,10 @@ body {
     height: 80px;
     background: rgba(229, 57, 53, 0.2);
     border: 2px solid var(--accent-red);
-    left: 85%;
+    left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    animation: orbit-path-2 10s linear infinite;
+    animation: orbit-path-2 15s linear infinite;
 }
 
 .circle-3 {
@@ -187,9 +189,9 @@ body {
     background: rgba(255, 179, 0, 0.2);
     border: 2px solid var(--gold);
     left: 50%;
-    top: 85%;
+    top: 50%;
     transform: translate(-50%, -50%);
-    animation: orbit-path-3 12s linear infinite;
+    animation: orbit-path-3 18s linear infinite;
 }
 
 .circle-4 {
@@ -197,37 +199,33 @@ body {
     height: 60px;
     background: rgba(76, 175, 80, 0.2);
     border: 2px solid #4CAF50;
-    left: 0%;
-    top: 0%;
+    left: 50%;
+    top: 50%;
     transform: translate(-50%, -50%);
-    animation: orbit-path-4 9s linear infinite;
+    animation: orbit-path-4 10s linear infinite;
 }
 
-/* Orbital animations */
+/* Animation paths extending further from center */
 @keyframes orbit-path-1 {
-    0% { transform: translate(-50%, -50%) rotate(0deg) translateX(90px) rotate(0deg); }
-    100% { transform: translate(-50%, -50%) rotate(360deg) translateX(90px) rotate(-360deg); }
+    0% { transform: translate(-50%, -50%) rotate(0deg) translateX(55px) rotate(0deg); }
+    100% { transform: translate(-50%, -50%) rotate(360deg) translateX(55px) rotate(-360deg); }
 }
 
 @keyframes orbit-path-2 {
-    0% { transform: translate(-50%, -50%) rotate(0deg) translateX(90px) rotate(0deg); }
-    100% { transform: translate(-50%, -50%) rotate(-360deg) translateX(90px) rotate(360deg); }
+    0% { transform: translate(-50%, -50%) rotate(90deg) translateX(60px) rotate(-90deg); }
+    100% { transform: translate(-50%, -50%) rotate(-270deg) translateX(60px) rotate(270deg); }
 }
 
 @keyframes orbit-path-3 {
-    0% { transform: translate(-50%, -50%) rotate(0deg) translateX(90px) rotate(0deg); }
-    100% { transform: translate(-50%, -50%) rotate(360deg) translateX(90px) rotate(-360deg); }
+    0% { transform: translate(-50%, -50%) rotate(180deg) translateX(50px) rotate(-180deg); }
+    100% { transform: translate(-50%, -50%) rotate(540deg) translateX(50px) rotate(-540deg); }
 }
 
 @keyframes orbit-path-4 {
-    0% { transform: translate(-50%, -50%) rotate(0deg) translateX(90px) rotate(0deg); }
-    100% { transform: translate(-50%, -50%) rotate(-360deg) translateX(90px) rotate(360deg); }
+    0% { transform: translate(-50%, -50%) rotate(270deg) translateX(45px) rotate(-270deg); }
+    100% { transform: translate(-50%, -50%) rotate(-90deg) translateX(45px) rotate(90deg); }
 }
 
-@keyframes subtle-rotate {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
-}
 
 /* Trust Banner */
 .trust-banner {
