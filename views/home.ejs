@@ -19,32 +19,62 @@
                 <h1>INTERSUBJECT</h1>
                 <h2>An Experiment in Personal and Social Insight to Illustrate</h2>
                 <div class="hero-description">
-                 <ul class="vision-list">
-  <li>A space to speak without shame or fear—so what’s real can finally be seen.</li>
-  <li>Each expression develops the collective soul—cohort by cohort, creating a representation to reflect.</li>
-  <li>This is not social media. It’s a memory system—truth recorded without performance.</li>
-  <li>The aim is moral clarity at scale—through authentic overlap, not algorithms.</li>
-  <li>We are testing whether people can build a future worth trusting, a voice from the bottom up.</li>
-</ul>
+                <div class="vision-deck">
+  <div class="vision-card">
+    A space to speak without shame or fear—so the truths we bury can finally begin to shape the world.
+  </div>
+  <div class="vision-card">
+    Each expression helps create the collective soul—cohort by cohort, we become part of something greater than ourselves.
+  </div>
+  <div class="vision-card">
+    This is not social media. It’s a living memory system—truth recorded without status, ego, or pretense.
+  </div>
+  <div class="vision-card">
+    The real threat isn’t disagreement—it’s the coercion of shame, the censorship of fear, and the distortion of money and tribal identity.
+  </div>
+  <div class="vision-card">
+    Intersubject is a test: can we create something enduring together, by telling the truth now, while we still can?
+  </div>
+</div>
+
                 </div>
 <style>
 .vision-deck {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
-  margin: 2rem 0;
+  gap: 1.25rem;
+  margin: 2.5rem 0;
+  padding: 0 1rem;
 }
 
 .vision-card {
-  background-color: #ffffff;
-  border-radius: 1rem;
-  padding: 1.1rem 1.25rem;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
-  font-size: 1.05rem;
+  background-color: #f9fbfe;
+  border-radius: 1.2rem;
+  padding: 1.25rem 1.5rem;
+  box-shadow: 0 4px 12px rgba(30, 136, 229, 0.07);
+  font-size: 1.08rem;
   font-weight: 500;
-  line-height: 1.6;
+  line-height: 1.65;
   color: #212121;
+  border-left: 6px solid #1E88E5;
+  transition: transform 0.2s ease;
 }
+
+.vision-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(30, 136, 229, 0.12);
+}
+
+@media (min-width: 768px) {
+  .vision-deck {
+    padding: 0 2rem;
+  }
+
+  .vision-card {
+    font-size: 1.12rem;
+  }
+}
+
 </style>
                 <div class="hero-cta">
                     <button class="cta-button primary" data-section="register">Be the Light You Already Are.</button>
