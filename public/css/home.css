@@ -40,8 +40,7 @@ body {
 
 /* Hero Section */
 .hero {
-    margin-top: 3rem;
-    margin-left: 3rem;
+    margin-top: 4rem;
     background: transparent;
     padding: 0 1rem;
 }
@@ -77,26 +76,6 @@ body {
     letter-spacing: -0.01em;
 }
 
-.hero-description {
-    font-size: 1rem;
-    color: var(--text-medium);
-    max-width: 900px;
-    line-height: 1.6;
-}
-
-.hero-description ul {
-    padding-left: 1.25em;
-    margin-top: 0.75em;
-    margin-bottom: 1.25em;
-    font-size: 0.95rem;
-    color: var(--text-dark);
-    list-style-type: disc;
-}
-  
-.hero-description ul li {
-    margin-bottom: 0.4em;
-    line-height: 1.5;
-}
   
 .hero-cta {
     margin: 2rem 0;
