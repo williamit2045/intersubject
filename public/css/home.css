@@ -41,6 +41,7 @@ body {
 /* Hero Section */
 .hero {
     margin-top: 3rem;
+    margin-left: 3rem;
     background: transparent;
     padding: 0 1rem;
 }
