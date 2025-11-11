@@ -17,26 +17,20 @@
         </div>
             <div class="hero-content">
                 <h1>INTERSUBJECT</h1>
-                <h2>An Experiment in Personal and Social Insight to Illustrate</h2>
+                <h2>Where the individual meets the group</h2>
                 
                 <div class="vision-deck">
   <div class="vision-card">
-    A space to speak without coercion or shame—so our private truths can shape shared reality.
+    A platform for authentic dialogue where diverse perspectives converge.
   </div>
   <div class="vision-card">
-    Each expression joins a larger voice—together forming a functional, collective consciousness.
+    Share insights openly in a space designed for genuine human connection with the larger group. 
   </div>
   <div class="vision-card">
-    Any group can become self-reflective to those with courage to both express and know the truth.
-  </div>
-  <div class="vision-card">
-    Shame is the leash. Fear is the cage. This can start breaking both if you’re ready.
-  </div>
-  <div class="vision-card">
-    This site is a test: can humanity create space for a collective voice, by telling the truth while we still can?
+    Building understanding through thoughtful exchange and collective wisdom.
   </div>
  <div class="hero-cta">
-                    <button class="cta-button primary" data-section="register">Be as you are.</button>
+                    <button class="cta-button primary" data-section="register">Register</button>
                     <button class="cta-button secondary" data-section="login">Sign In</button>
                 </div>
 </div>
@@ -74,17 +68,42 @@
   justify-content: center;
 }
 
-/* Vision cards styling */
+/* Vision Deck */
 .vision-deck {
+  padding: 1.75rem 0;
+  margin: 2.25rem 0;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1.6rem;
-  margin: 2.5rem 0;
-  padding: 0;
-  width: 100%;
+  gap: 1rem; /* <-- clear vertical spacing */
 }
 
+/* Vision Cards */
+.vision-card {
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-left: 3px solid; /* warm silver/gold blend */
+  border-left-color: var(--primary-blue);
+  border-radius: 10px;
+  padding: 1rem 1.25rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #414141;
+  text-align: center;
+  line-height: 1.55;
+  width: 88%;
+  box-shadow: 0 1px 6px rgba(60, 60, 80, 0.08);
+  transition: transform 160ms ease, box-shadow 160ms ease, border-left-color 160ms ease;
+}
+
+/* Hover state — cooler tone for contrast */
+.vision-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(30, 136, 229, 0.15);
+  
+  background: #f3f6fa; 
+}
+
+/*
 .vision-card {
   background: rgb(30, 136, 229, 0.2);
   border-bottom: 1px solid rgb(30, 136, 229);
@@ -105,7 +124,7 @@
 .vision-card:hover {
   transform: translateY(-2px);
 }
-
+*/
 /* Responsive adjustments */
 @media (max-width: 992px) {
   .hero-container {
@@ -155,7 +174,7 @@
 <section class="home-upcoming-features">
     <div class="home-feature-header">
       <h2>Coming Soon to Intersubject</h2>
-      <p>Our development roadmap for deeper collective intelligence</p>
+      <p>Upcoming features to enhance community engagement</p>
     </div>
     
     <div class="home-feature-cards">
@@ -170,7 +189,7 @@
         </ul>
         <div class="home-feature-timeline">
           <div class="home-timeline-marker"></div>
-          <span>Coming Summer 2025</span>
+          <span>In Progress</span>
         </div>
       </div>
       
@@ -185,7 +204,7 @@
         </ul>
         <div class="home-feature-timeline">
           <div class="home-timeline-marker"></div>
-          <span>Coming Fall 2025</span>
+          <span>In Progress</span>
         </div>
       </div>
       
@@ -200,7 +219,7 @@
         </ul>
         <div class="home-feature-timeline">
           <div class="home-timeline-marker"></div>
-          <span>Coming Winter 2025</span>
+          <span>In Progress</span>
         </div>
       </div>
     </div>
@@ -345,17 +364,17 @@
             <div class="trust-item">
                 <div class="trust-icon">🔒</div>
                 <h3>100% Anonymous</h3>
-                <p>We are committed to preserving the anonimity of your real-world identity, to meet the social need for authenticity, while your voice becomes the voice of the group.</p>
+                <p>Committed to preserving the anonimity of your real-world identity, your voice acts as the voice of the cohorts.</p>
             </div>
             <div class="trust-item">
                 <div class="trust-icon">🎯</div>
-                <h3>Zero Algorithms</h3>
-                <p>No manipulation, no echo chambers - just exhuming authenticity to for clean air to to relieve the angst of growing distrust.</p>
+                <h3>Organic Discovery</h3>
+                <p>No manipulation, algorithms or echo chambers - just a place for the group, which you are part of, to represent and witness itself.</p>
             </div>
             <div class="trust-item">
                 <div class="trust-icon">🔍</div>
-                <h3>Pure Transparency</h3>
-                <p>To subtley enforce greater opportunity for noncoercive, authentic belonging... to the exent users value participation in a joined voice.</p>
+                <h3>Open Participation</h3>
+                <p>To cultivate authentic connection and shared understanding that arises naturally from our deeper interdependence.</p>
             </div>
         </div>
     </section>
