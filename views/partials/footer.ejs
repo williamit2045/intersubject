@@ -16,7 +16,7 @@
 .site-footer {
   background-color: #1E88E5;
   border-top: 3px solid #E53935;
-  padding: 1.2rem 0;
+  padding: 0.75rem 0;
   width: 100%;
   position: relative;
   bottom: 0;
@@ -35,7 +35,7 @@
   list-style: none;
   display: flex;
   justify-content: center;
-  gap: 2.5rem;
+  gap: 2rem;
   padding: 0;
   margin: 0 0 1rem;
 }
@@ -45,13 +45,13 @@
   text-decoration: none;
   font-weight: 500;
   font-size: 1.05rem;
-  padding: 0.5rem 0;
+  padding: 0.2rem 0;
   position: relative;
   transition: color 0.2s ease;
 }
 
 .footer-links li a:hover {
-  color: #E53935;
+  color: var(--primary-blue);
 }
 
 .footer-links li a:after {
@@ -61,16 +61,16 @@
   height: 2px;
   bottom: 0;
   left: 0;
-  background-color: #E53935;
   transition: width 0.2s ease;
 }
 
 .footer-links li a:hover:after {
   width: 100%;
+  color: var(--primary-blue);
 }
 
 .copyright {
-  margin-top: 0.75rem;
+  margin-top: 0.25rem;
   color: rgba(255, 255, 255, 0.8);
   font-size: 0.95rem;
 }
@@ -78,7 +78,7 @@
 /* Mobile responsiveness */
 @media (max-width: 768px) {
   .footer-links {
-    gap: 1.5rem;
+    gap: 1rem;
   }
 }
 
@@ -91,41 +91,5 @@
   .site-footer {
     padding: 1rem 0;
   }
-}
-</style>
-
-<!-- Dashboard-specific footer styles -->
-<style>
-/* General page structure */
-html, body {
-  height: 100%;
-  margin: 0;
-}
-
-body {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-}
-
-/* Ensure main content takes available space */
-.dashboard-container, .home-main, main {
-  flex: 1 0 auto;
-}
-
-/* Dashboard-specific footer positioning */
-.results-section {
-  margin-bottom: 2rem; /* Add space before footer */
-  padding-bottom: 2rem;
-}
-
-/* Add pagination margin */
-.pagination {
-  margin-bottom: 2.5rem;
-}
-
-/* Make sure footer stays at bottom */
-body > .site-footer {
-  flex-shrink: 0;
 }
 </style>
