@@ -1,522 +1,216 @@
-<%- include('./partials/header', { title: 'Intersubject | A Live Anthropology Experiment in Social Insight' }) %>
+<%- include('./partials/header', { title: 'Intersubject | Where the individual meets the group' }) %>
 <%- include('./partials/nav') %>
 
+
 <main class="home-main">
-    <section class="hero">
-        <div class="hero-container">
-          <div class="hero-graphic">
-            <div class="orbit-container">
-                <div class="orbit-ring"></div>
-                <div class="orbiting-circles">
-                    <div class="orbit-circle circle-1"></div>
-                    <div class="orbit-circle circle-2"></div>
-                    <div class="orbit-circle circle-3"></div>
-                    <div class="orbit-circle circle-4"></div>
-                </div>
-            </div>
-        </div>
-            <div class="hero-content">
-                <h1>INTERSUBJECT</h1>
-                <h2>Where the individual meets the group</h2>
-                
-                <div class="vision-deck">
-  <div class="vision-card">
-    A platform for authentic dialogue where diverse perspectives converge.
-  </div>
-  <div class="vision-card">
-    Share insights openly in a space designed for genuine human connection with the larger group. 
-  </div>
-  <div class="vision-card">
-    Building understanding through thoughtful exchange and collective wisdom.
-  </div>
- <div class="hero-cta">
-                    <button class="cta-button primary" data-section="register">Register</button>
-                    <button class="cta-button secondary" data-section="login">Sign In</button>
-                </div>
-</div>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-container">
+      <div class="hero-content">
+        <h1>INTERSUBJECT</h1>
+        <h2>Where the individual meets the group</h2>
 
-              
-<style>
-/* Hero Section */
-.hero {
-  margin-top: 6rem;
-  background: transparent;
-  padding: 0 1rem;
-}
+        <div class="vision-deck">
+          <div class="vision-card">Express what is true for you.</div>
+          <div class="vision-card">Add to cohort representation.</div>
+          <div class="vision-card">See the group reflect itself.</div>
+          <div class="vision-card">Shared awareness grows from participation.</div>
+          <div class="vision-card">Feel part of a larger whole.</div>
 
-.hero-container {
-  display: flex;
-  align-items: center;
-  gap: 2rem;
-  margin: 0 auto;
-  max-width: 1200px; /* Control the overall width */
-  justify-content: center; /* Center the container */
-}
-
-.hero-content {
-  flex: 1;
-  max-width: 800px; /* Limit the width for better readability */
-}
-
-/* Animation sizing and positioning */
-.hero-graphic {
-  width: 260px;
-  height: 260px;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-/* Vision Deck */
-.vision-deck {
-  padding: 1.75rem 0;
-  margin: 2.25rem 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem; /* <-- clear vertical spacing */
-}
-
-/* Vision Cards */
-.vision-card {
-  border: 1px solid rgba(0, 0, 0, 0.06);
-  border-left: 3px solid; /* warm silver/gold blend */
-  border-left-color: var(--primary-blue);
-  border-radius: 10px;
-  padding: 1rem 1.25rem;
-  font-size: 1rem;
-  font-weight: 600;
-  color: #414141;
-  text-align: center;
-  line-height: 1.55;
-  width: 88%;
-  box-shadow: 0 1px 6px rgba(60, 60, 80, 0.08);
-  transition: transform 160ms ease, box-shadow 160ms ease, border-left-color 160ms ease;
-}
-
-/* Hover state — cooler tone for contrast */
-.vision-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 18px rgba(30, 136, 229, 0.15);
-  
-  background: #f3f6fa; 
-}
-
-/*
-.vision-card {
-  background: rgb(30, 136, 229, 0.2);
-  border-bottom: 1px solid rgb(30, 136, 229);
-  border-left: 3px solid rgba(9, 113, 37, 0.5);
-  border-radius: 8px;
-  padding: 0.75rem 1rem;
-  font-size: 0.8rem;
-  font-weight: 500;
-  line-height: 1.5;
-  color: #212121;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-  transition: all 0.2s ease-in-out;
-  width: 85%;
-  margin: 0 auto;
-  text-align: left;
-}
-
-.vision-card:hover {
-  transform: translateY(-2px);
-}
-*/
-/* Responsive adjustments */
-@media (max-width: 992px) {
-  .hero-container {
-    padding: 0 1.5rem;
-  }
-  
-  .vision-card {
-    width: 90%;
-  }
-}
-
-@media (max-width: 768px) {
-  .hero {
-    margin-top: 2rem;
-    padding: 0;
-  }
-  
-  .hero-container {
-    flex-direction: column;
-    text-align: center;
-    padding: 0 1rem;
-  }
-  
-  .hero-graphic {
-    margin-right: 0;
-    margin-bottom: 1.5rem;
-  }
-  
-  .vision-deck {
-    gap: 0.6rem;
-    margin: 1.5rem auto;
-  }
-  
-  .vision-card {
-    width: 95%;
-    padding: 0.9rem 1.1rem;
-  }
-}
-
-</style>
-               
-            </div>
-        </div>
-    </section>
-
-    <!-- Place this between the hero section and trust-banner section -->
-<section class="home-upcoming-features">
-    <div class="home-feature-header">
-      <h2>Coming Soon to Intersubject</h2>
-      <p>Upcoming features to enhance community engagement</p>
-    </div>
-    
-    <div class="home-feature-cards">
-      <div class="home-feature-card">
-        <div class="home-feature-icon">📊</div>
-        <h3>Psychological Assessments & Questionnaires</h3>
-        <p>Complete standardized psychological inventories with your answers automatically creating your cohort profile.</p>
-        <ul class="home-feature-list">
-          <li>Myers-Briggs and Big Five Personality assessments</li>
-          <li>Moral Foundations measurement</li>
-          <li>See privately where you stand in relation to others</li>
-        </ul>
-        <div class="home-feature-timeline">
-          <div class="home-timeline-marker"></div>
-          <span>In Progress</span>
-        </div>
-      </div>
-      
-      <div class="home-feature-card">
-        <div class="home-feature-icon">🧩</div>
-        <h3>Community-Created Questionnaires</h3>
-        <p>Create your own question sets and invite others to respond, building unique cohort groupings around specific topics.</p>
-        <ul class="home-feature-list">
-          <li>Build custom assessment tools</li>
-          <li>Responses automatically link to cohorts</li>
-          <li>Discover unexpected patterns across groups</li>
-        </ul>
-        <div class="home-feature-timeline">
-          <div class="home-timeline-marker"></div>
-          <span>In Progress</span>
-        </div>
-      </div>
-      
-      <div class="home-feature-card">
-        <div class="home-feature-icon">🌐</div>
-        <h3>Cohort-to-Cohort Semantic Network</h3>
-        <p>Experience the next evolution of social mapping as cohorts link to other cohorts based on semantic relationships.</p>
-        <ul class="home-feature-list">
-          <li>Create a rich network of meaning among cohorts</li>
-          <li>Explore conceptual connections beyond shared users</li>
-          <li>Visualize emerging patterns of collective thinking</li>
-        </ul>
-        <div class="home-feature-timeline">
-          <div class="home-timeline-marker"></div>
-          <span>In Progress</span>
+          <div class="hero-cta">
+            <button class="cta-button about-primary toggle-btn" data-section="register" style="margin-top: 2rem;">Register</button>
+          </div>
         </div>
       </div>
     </div>
   </section>
-  
-  <style>
-    .home-upcoming-features {
-      background-color: #F5F9FF;
-      padding: 3rem 0;
-      margin-top: 0;
-      border-top: 3px solid #E53935;
-      border-bottom: 3px solid #E53935;
-    }
-    
-    .home-feature-header {
-      text-align: center;
-      margin-bottom: 2.5rem;
-      padding: 0 1rem;
-    }
-    
-    .home-feature-header h2 {
-      font-family: 'Rajdhani', sans-serif;
-      color: #1E88E5;
-      font-size: 2rem;
-      font-weight: 700;
-      margin-bottom: 0.75rem;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
-    
-    .home-feature-header p {
-      color: #616161;
-      font-size: 1.1rem;
-      max-width: 700px;
-      margin: 0 auto;
-    }
-    
-    .home-feature-cards {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 2rem;
-      padding: 0 1rem;
-      max-width: 1400px;
-      margin: 0 auto;
-    }
-    
-    .home-feature-card {
-      background-color: white;
-      border-radius: 8px;
-      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
-      padding: 2rem;
-      width: 100%;
-      max-width: 380px;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      position: relative;
-      border-top: 4px solid #1E88E5;
-    }
-    
-    .home-feature-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
-    }
-    
-    .home-feature-icon {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-    }
-    
-    .home-feature-card h3 {
-      color: #1E88E5;
-      font-size: 1.4rem;
-      margin-bottom: 1rem;
-      font-weight: 600;
-    }
-    
-    .home-feature-card p {
-      color: #616161;
-      font-size: 0.95rem;
-      margin-bottom: 1.25rem;
-      line-height: 1.5;
-    }
-    
-    .home-feature-list {
-      list-style-type: none;
-      padding: 0;
-      margin: 0 0 1.5rem;
-    }
-    
-    .home-feature-list li {
-      position: relative;
-      padding-left: 1.5rem;
-      margin-bottom: 0.5rem;
-      color: #616161;
-      font-size: 0.9rem;
-    }
-    
-    .home-feature-list li:before {
-      content: "•";
-      color: #E53935;
-      font-weight: bold;
-      position: absolute;
-      left: 0.5rem;
-    }
-    
-    .home-feature-timeline {
-      display: flex;
-      align-items: center;
-      margin-top: 1.5rem;
-      padding-top: 1rem;
-      border-top: 1px solid #E0E0E0;
-    }
-    
-    .home-timeline-marker {
-      width: 12px;
-      height: 12px;
-      background-color: #4CAF50;
-      border-radius: 50%;
-      margin-right: 0.75rem;
-    }
-    
-    .home-feature-timeline span {
-      color: #4CAF50;
-      font-size: 0.85rem;
-      font-weight: 600;
-    }
-    
-    @media (max-width: 768px) {
-      .home-feature-cards {
-        flex-direction: column;
-        align-items: center;
-      }
-      
-      .home-feature-card {
-        max-width: 100%;
-      }
-    }
-  </style>
 
-    <section class="trust-banner">
-        <div class="trust-container">
-            <div class="trust-item">
-                <div class="trust-icon">🔒</div>
-                <h3>100% Anonymous</h3>
-                <p>Committed to preserving the anonimity of your real-world identity, your voice acts as the voice of the cohorts.</p>
-            </div>
-            <div class="trust-item">
-                <div class="trust-icon">🎯</div>
-                <h3>Organic Discovery</h3>
-                <p>No manipulation, algorithms or echo chambers - just a place for the group, which you are part of, to represent and witness itself.</p>
-            </div>
-            <div class="trust-item">
-                <div class="trust-icon">🔍</div>
-                <h3>Open Participation</h3>
-                <p>To cultivate authentic connection and shared understanding that arises naturally from our deeper interdependence.</p>
-            </div>
-        </div>
-    </section>
+  <!-- REGISTRATION OVERLAY (unchanged fields) -->
+  <div class="overlay overlay-form" id="register" aria-hidden="true">
+    <div class="form-content" role="dialog" aria-modal="true" aria-labelledby="register-title">
+      <h2 id="register-title">Create your account</h2>
 
-    <!-- Registration overlay -->
-    <div class="overlay-form" id="register">
-        <div class="form-content">
-            <h2>Join Intersubject</h2>
-            <p class="register-intro">Contribute to a new way of understanding our collective consciousness.</p>
-            <form action="/auth/register" method="POST">
-                <div class="form-group">
-                    <label for="new-username">Username:</label>
-                    <input type="text" id="new-username" name="username" required placeholder="Choose a unique username">
-                </div>
-        
-                <div class="form-group">
-                    <label for="new-password">Password:</label>
-                    <input type="password" id="new-password" name="password" required placeholder="Create a secure password">
-                </div>
-        
-                <div class="form-group">
-                    <label for="email">Email (optional):</label>
-                    <input type="email" id="email" name="email" placeholder="For recovery only (never shared)">
-                </div>
-        
-                <hr>
-                <p style="font-size: 0.9rem; color: #666; margin-top: 1rem;">
-                    <strong>Optional but requested:</strong> These questions help you immediately shape your visible presence in Intersubject. Your answers will be converted into expressions that reflect your identity. You can skip them for now and return to them later. For fields with text input, your words will create or join cohorts directly.
-                </p>
-        
-                <div class="demographic-section">
-                    <h4 class="section-heading">Demographic Identity</h4>
-            
-                    <div class="form-group">
-                        <label>Age Range:</label>
-                        <select name="demographic[age]">
-                            <option value="">-- select --</option>
-                            <option value="Under 18">Under 18</option>
-                            <option value="18–24">18–24</option>
-                            <option value="25–34">25–34</option>
-                            <option value="35–44">35–44</option>
-                            <option value="45–54">45–54</option>
-                            <option value="55–64">55–64</option>
-                            <option value="65+">65+</option>
-                        </select>
-                    </div>
-            
-                    <div class="form-group">
-                        <label>Gender Identity:</label>
-                        <select name="demographic[gender]">
-                            <option value="">-- select --</option>
-                            <option value="Woman">Woman</option>
-                            <option value="Man">Man</option>
-                            <option value="Nonbinary">Nonbinary</option>
-                            <option value="Transgender">Transgender</option>
-                            <option value="Other">Other</option>
-                        </select>
-                    </div>
-            
-                    <div class="form-group">
-                        <label>Ethnic or Cultural Background:</label>
-                        <select name="demographic[ethnicity]">
-                            <option value="">-- select --</option>
-                            <option value="Black">Black</option>
-                            <option value="Hispanic">Hispanic</option>
-                            <option value="White">White</option>
-                            <option value="Middle Eastern">Middle Eastern</option>
-                            <option value="South Asian">South Asian</option>
-                            <option value="East Asian">East Asian</option>
-                            <option value="Indigenous">Indigenous</option>
-                            <option value="Mixed">Mixed</option>
-                        </select>
-                    </div>
-            
-                    <div class="form-group">
-                        <label>Country/Region:</label>
-                        <input type="text" name="demographic[region]" placeholder="e.g. Jordan, Thailand, Nigeria">
-                    </div>
-            
-                    <div class="form-group">
-                        <label>Languages Spoken:</label>
-                        <input type="text" name="demographic[languages]" placeholder="e.g. English, Spanish">
-                    </div>
-            
-                    <div class="form-group">
-                        <label>Religious or Spiritual Identity:</label>
-                        <select name="demographic[religion]">
-                            <option value="">-- select --</option>
-                            <option value="Christian">Christian</option>
-                            <option value="Muslim">Muslim</option>
-                            <option value="Hindu">Hindu</option>
-                            <option value="Buddhist">Buddhist</option>
-                            <option value="Jewish">Jewish</option>
-                            <option value="Spiritual but not religious">Spiritual but not religious</option>
-                            <option value="Agnostic">Agnostic</option>
-                            <option value="Atheist">Atheist</option>
-                        </select>
-                    </div>
-            
-                    <div class="form-group">
-                        <label>Educational Level:</label>
-                        <select name="demographic[education]">
-                            <option value="">-- select --</option>
-                            <option value="No formal education">No formal education</option>
-                            <option value="High school">High school</option>
-                            <option value="Some college">Some college</option>
-                            <option value="Bachelor's degree">Bachelor's degree</option>
-                            <option value="Master's degree">Master's degree</option>
-                            <option value="Doctorate">Doctorate</option>
-                            <option value="Trade/Technical training">Trade/Technical training</option>
-                        </select>
-                    </div>
-            
-                    <div class="form-group">
-                        <label>Occupation or Work Field:</label>
-                        <input type="text" name="demographic[occupation]" placeholder="e.g. mental health counselor, farmer, poet">
-                    </div>
-            
-                    <h4 class="section-heading">Optional Additions</h4>
-            
-                    <div class="form-group">
-                        <label>Political Alignment (optional):</label>
-                        <input type="text" name="demographic[politics]" placeholder="e.g. Progressive, Centrist, Post-left">
-                    </div>
-            
-                    <div class="form-group">
-                        <label>Sexual Orientation (optional):</label>
-                        <input type="text" name="demographic[orientation]" placeholder="e.g. Gay, Bisexual">
-                    </div>
-                </div>
-        
-                <button type="submit" class="cta-button primary" style="width: 100%;">Create Account</button>
-            </form>
-    
-            <div class="login-option">
-                <p>Already have an account? <button class="text-btn toggle-btn" data-section="login">Log in</button></p>
-            </div>
+      <form action="/auth/register" method="POST">
+        <div class="form-group">
+          <label for="new-username">Username</label>
+          <input type="text" id="new-username" name="username" required placeholder="Choose a unique username">
         </div>
+
+        <div class="form-group">
+          <label for="new-password">Password</label>
+          <input type="password" id="new-password" name="password" required placeholder="Create a secure password">
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email (optional)</label>
+          <input type="email" id="email" name="email" placeholder="For recovery only">
+        </div>
+
+        <hr>
+
+        <p class="register-help">
+          Optional details seed early cohorts. You can return anytime. Free-text fields create expressions.
+        </p>
+
+        <div class="demographic-section">
+          <h4 class="section-heading">Demographic</h4>
+
+          <div class="form-group">
+            <label>Age Range</label>
+            <select name="demographic[age]">
+              <option value="">-- select --</option>
+              <option value="Under 18">Under 18</option>
+              <option value="18–24">18–24</option>
+              <option value="25–34">25–34</option>
+              <option value="35–44">35–44</option>
+              <option value="45–54">45–54</option>
+              <option value="55–64">55–64</option>
+              <option value="65+">65+</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>Gender Identity</label>
+            <select name="demographic[gender]">
+              <option value="">-- select --</option>
+              <option value="Woman">Woman</option>
+              <option value="Man">Man</option>
+              <option value="Nonbinary">Nonbinary</option>
+              <option value="Transgender">Transgender</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>Ethnic or Cultural Background</label>
+            <select name="demographic[ethnicity]">
+              <option value="">-- select --</option>
+              <option value="Black">Black</option>
+              <option value="Hispanic">Hispanic</option>
+              <option value="White">White</option>
+              <option value="Middle Eastern">Middle Eastern</option>
+              <option value="South Asian">South Asian</option>
+              <option value="East Asian">East Asian</option>
+              <option value="Indigenous">Indigenous</option>
+              <option value="Mixed">Mixed</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>Country/Region</label>
+            <input type="text" name="demographic[region]" placeholder="e.g., Jordan, Thailand, Nigeria">
+          </div>
+
+          <div class="form-group">
+            <label>Languages</label>
+            <input type="text" name="demographic[languages]" placeholder="e.g., English, Spanish">
+          </div>
+
+          <div class="form-group">
+            <label>Religious or Spiritual Identity</label>
+            <select name="demographic[religion]">
+              <option value="">-- select --</option>
+              <option value="Christian">Christian</option>
+              <option value="Muslim">Muslim</option>
+              <option value="Hindu">Hindu</option>
+              <option value="Buddhist">Buddhist</option>
+              <option value="Jewish">Jewish</option>
+              <option value="Spiritual but not religious">Spiritual but not religious</option>
+              <option value="Agnostic">Agnostic</option>
+              <option value="Atheist">Atheist</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>Education</label>
+            <select name="demographic[education]">
+              <option value="">-- select --</option>
+              <option value="No formal education">No formal education</option>
+              <option value="High school">High school</option>
+              <option value="Some college">Some college</option>
+              <option value="Bachelor's degree">Bachelor's degree</option>
+              <option value="Master's degree">Master's degree</option>
+              <option value="Doctorate">Doctorate</option>
+              <option value="Trade/Technical training">Trade/Technical training</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>Occupation or Field</label>
+            <input type="text" name="demographic[occupation]" placeholder="e.g., mental health counselor, farmer, poet">
+          </div>
+
+          <h4 class="section-heading">Optional additions</h4>
+
+          <div class="form-group">
+            <label>Political Alignment (optional)</label>
+            <input type="text" name="demographic[politics]" placeholder="e.g., Progressive, Centrist, Post-left">
+          </div>
+
+          <div class="form-group">
+            <label>Sexual Orientation (optional)</label>
+            <input type="text" name="demographic[orientation]" placeholder="e.g., Gay, Bisexual">
+          </div>
+        </div>
+
+        <button type="submit" class="about-primary" style="width:100%; border:none; border-radius:6px; padding:0.8rem 1rem; font-weight:600; color:#fff; background:#6d5dfc;">Create Account</button>
+      </form>
+
+      <div class="login-option">
+        <p>Already have an account? <button class="text-btn toggle-btn" data-section="login">Log in</button></p>
+      </div>
     </div>
+  </div>
 </main>
 
 <script src="/js/auth.js"></script>
 <script src="/js/home.js"></script>
 
 <%- include('./partials/footer') %>
+
+<!-- Page-specific styles aligned with About -->
+<style>
+  .home-main {
+    background: #f8f9fa;
+    color: #2e2e2e;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    padding-bottom: 2.5rem;
+  }
+
+  .hero { margin-top: 6rem; padding: 0 1rem; }
+  .hero-container { max-width: 900px; margin: 0 auto; }
+  .hero-content h1 { font-size: 2.4rem; color: #1c1c1c; font-weight: 700; letter-spacing: .02em; }
+  .hero-content h2 { font-size: 1.15rem; color: #555; font-weight: 600; margin-top: .4rem; }
+
+  .vision-deck { padding: 1.25rem 0; margin: 1rem 0; display: flex; flex-direction: column; align-items: center; gap: .5rem; }
+  .vision-card{
+    width: 100%;
+    max-width: 400px;
+    background:#fff;
+    color:#2e2e2e;
+    border:1px solid #e6e9ef;
+    border-left:4px solid #6d5dfc;
+    border-radius:10px;
+    padding:.8rem 1.1rem;
+    font-size:1.02rem;
+    font-weight:600;
+    line-height:1.55;
+    box-shadow:0 1px 6px rgba(17,24,39,.06);
+    transition:transform .16s ease, box-shadow .16s ease, background .16s ease;
+  }
+  .vision-card:hover{ background:#f1f3ff; transform:translateY(-2px); box-shadow:0 6px 18px rgba(109,93,252,.18); }
+
+  .hero-cta{ display:flex; justify-content:center; margin-top:.5rem; }
+  .about-primary{
+    background:#6d5dfc; color:#fff; border:none; border-radius:6px;
+    padding:.7rem 1.4rem; font-size:1rem; font-weight:600; transition:all .25s ease; min-width:180px;
+  }
+  .about-primary:hover{ background:#5948e5; transform:translateY(-2px); box-shadow:0 4px 10px rgba(109,93,252,.25); }
+
+  @media (max-width: 768px){
+    .hero { margin-top: 2rem; }
+    .hero-container { padding: 0 1rem; }
+    .vision-card { max-width: 100%; }
+    .about-primary { width: 100%; }
+  }
+</style>
