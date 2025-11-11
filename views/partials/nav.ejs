@@ -2,8 +2,7 @@
 <nav class="nav-bar">
   <div class="nav-container">
     <div class="nav-top">
-      
-      <a href="/" class="nav-logo">
+      <a href="/" class="nav-logo" aria-label="Intersubject Home">
         <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <circle cx="12" cy="12" r="10" />
           <circle cx="12" cy="12" r="4" />
@@ -11,16 +10,16 @@
           <line x1="2" y1="12" x2="22" y2="12" />
         </svg>
       </a>
-  
+
       <!-- NAV SEARCH -->
       <div class="search-container">
         <div class="nav-search">
-          <input type="text" placeholder="Search cohorts..." id="nav-search-input" class="search-input">
+          <input type="text" placeholder="Search cohorts." id="nav-search-input" class="search-input" autocomplete="off">
           <div class="search-results-dropdown" id="nav-search-results"></div>
         </div>
       </div>
     </div>
-  
+
     <!-- NAV LINKS -->
     <ul class="nav-links">
       <% if (user) { %>
@@ -37,11 +36,11 @@
       <% } %>
     </ul>
   </div>
-    
+
   <!-- Express form overlay -->
-  <div class="overlay" id="express">
-    <div class="form-content">
-      <h2>Express Yourself</h2>
+  <div class="overlay" id="express" aria-hidden="true">
+    <div class="form-content" role="dialog" aria-modal="true" aria-labelledby="express-title">
+      <h2 id="express-title">Express Yourself</h2>
       <% if (user) { %>
         <form id="express-form" action="/expressions/create" method="POST">
           <p>Enter a statement that represents you:</p>
@@ -59,11 +58,11 @@
       <% } %>
     </div>
   </div>
- 
+
   <!-- Login Overlay -->
-  <div class="overlay" id="login">
-    <div class="form-content">
-      <h2>Login</h2>
+  <div class="overlay" id="login" aria-hidden="true">
+    <div class="form-content" role="dialog" aria-modal="true" aria-labelledby="login-title">
+      <h2 id="login-title">Login</h2>
       <form action="/auth/login" method="POST">
         <label for="username">Username:</label>
         <input type="text" id="username" name="username" required>
@@ -71,130 +70,33 @@
         <input type="password" id="password" name="password" required>
         <button type="submit" class="btn">Login</button>
       </form>
-      <p style="margin-top: 1rem;">
-        Don't have an account? <a href="/" style="color: yellowgreen;">Register here</a>
+      <p class="muted-link" style="margin-top:1rem;">
+        Don't have an account? <a href="/">Register here</a>
       </p>
     </div>
   </div>
- </nav>
- 
- <style>
-  .search-results-dropdown {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    background-color: #fffef8;
-    border-radius: 0 0 8px 8px;
-    z-index: 1000;
-    display: none;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border: 1px solid #e6dab6;
-  }
-
-  .search-result-item {
-    padding: 10px 15px;
-    cursor: pointer;
-    color: #3b3b2f;
-  }
-
-  .search-result-item:hover {
-    background-color: #fff3d6;
-  }
-
-  /* Overlay styling for all modal contexts */
-  .overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.3s ease;
-    z-index: 1000;
-  }
-
-  .overlay.active {
-    opacity: 1;
-    visibility: visible;
-  }
-
-  .form-content {
-    background-color: #fffaf0;
-    color: #3b3b2f;
-    padding: 2rem;
-    border-radius: 12px;
-    width: 50%;
-    max-width: 90vw;
-    min-width: 300px;
-    margin: 1.5rem;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-    max-height: 92vh;
-    overflow-y: auto;
-    font-family: 'Source Serif Pro', Georgia, serif;
-    position: relative;
-  }
-
-  .form-content textarea {
-    width: 100%;
-    height: 120px;
-    padding: 0.8rem;
-    border-radius: 6px;
-    font-size: 1rem;
-    resize: vertical;
-    background-color: #fff7e0;
-    border: 1px solid #aaa;
-    font-family: 'Inter', sans-serif;
-    color: #222;
-    box-shadow: inset 0 1px 4px rgba(0,0,0,0.1);
-  }
-
-  .form-content button {
-    padding: 0.6rem 1.4rem;
-    font-size: 1rem;
-    border-radius: 6px;
-    background-color: #efebc3;
-    border: none;
-    color: #222;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background-color 0.2s ease;
-  }
-
-  .form-content button:hover {
-    background-color: #e5d98a;
-  }
-</style>
+</nav>
 
 <script>
   document.addEventListener('DOMContentLoaded', function() {
     const navSearchInput = document.getElementById('nav-search-input');
     const navSearchResults = document.getElementById('nav-search-results');
-    
+
     navSearchInput.addEventListener('input', function() {
       const query = this.value.trim();
-      
       if (query.length < 2) {
         navSearchResults.innerHTML = '';
         navSearchResults.style.display = 'none';
         return;
       }
-      
       fetch(`/api/expressions/search?q=${encodeURIComponent(query)}`)
-        .then(response => response.json())
+        .then(r => r.json())
         .then(data => {
           navSearchResults.innerHTML = '';
-          
           if (data.length === 0) {
             navSearchResults.style.display = 'none';
             return;
           }
-          
           data.forEach(expression => {
             const item = document.createElement('div');
             item.className = 'search-result-item';
@@ -204,14 +106,11 @@
             });
             navSearchResults.appendChild(item);
           });
-          
           navSearchResults.style.display = 'block';
         })
-        .catch(error => {
-          console.error('Search error:', error);
-        });
+        .catch(err => console.error('Search error:', err));
     });
-    
+
     document.addEventListener('click', function(event) {
       if (!navSearchInput.contains(event.target) && !navSearchResults.contains(event.target)) {
         navSearchResults.style.display = 'none';
