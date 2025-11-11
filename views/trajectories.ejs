@@ -1,72 +1,59 @@
-<%- include("./partials/header", { title: "Development Trajectories" }) %>
+<%- include("./partials/header", { title: "Intersubject — Project Overview" }) %>
 <%- include("./partials/nav") %>
 
 <main class="traj-page">
   <div class="traj-content-container">
-    <h1 class="traj-title">Development Trajectories</h1>
-    <p class="traj-subtitle">From useful mirrors to collective minds.</p>
+    <h1 class="traj-title">Intersubject — Project Overview</h1>
+    <p class="traj-subtitle">A practical web app for mapping shared viewpoints.</p>
 
-    <blockquote class="traj-quote">
-      "Intersubject begins with resonance—and ends in revelation."
-    </blockquote>
+    <section>
+      <h2 class="traj-heading">Purpose</h2>
+      <p class="traj-text">
+        Intersubject helps groups see where their ideas overlap and differ.  
+        It turns short text statements into clear visual cohorts, offering quick insight for teams, educators, and communities.
+      </p>
+    </section>
 
-    <h2 class="traj-heading">1. Minimal Viable Use</h2>
-    <p class="traj-text">Intersubject already works as a shared dashboard for group reflection. From classrooms to collectives, any group that seeks truth together can use this tool to surface shared identity and surprising divergence.</p>
-    <ul class="traj-list">
-      <li class="traj-list-item"><strong>Teams & communities:</strong> Create maps of mutual understanding.</li>
-      <li class="traj-list-item"><strong>Therapy & coaching:</strong> Let hidden structure emerge across client expressions.</li>
-      <li class="traj-list-item"><strong>Anonymous participation:</strong> Truth without the trap of visibility.</li>
-    </ul>
+    <section>
+      <h2 class="traj-heading">Applications</h2>
+      <ul class="traj-list">
+        <li class="traj-list-item"><strong>Education:</strong> Measure shared understanding and classroom feedback.</li>
+        <li class="traj-list-item"><strong>Organizations:</strong> Align values, priorities, or feedback across teams.</li>
+        <li class="traj-list-item"><strong>Coaching:</strong> Track mindset changes over time.</li>
+        <li class="traj-list-item"><strong>Research:</strong> Cluster open responses into meaningful trends.</li>
+      </ul>
+    </section>
 
-    <h2 class="traj-heading">2. Social Insight as Daily Utility</h2>
-    <p class="traj-text">Beyond practical value, Intersubject becomes a companion for self-reflection—helping individuals navigate identity not in isolation, but in relational context.</p>
-    <ul class="traj-list">
-      <li class="traj-list-item"><strong>Expression-based profiles:</strong> Users build themselves through what they resonate with, not what they claim to be.</li>
-      <li class="traj-list-item"><strong>Friendship & dating scaffolds:</strong> Shared beliefs and outlooks become visible entry points.</li>
-      <li class="traj-list-item"><strong>Evolving map of self:</strong> Identity is not fixed—but discoverable, mutable, and transparent.</li>
-    </ul>
+    <section>
+      <h2 class="traj-heading">Technical Outline</h2>
+      <ul class="traj-list">
+        <li class="traj-list-item"><strong>Stack:</strong> Node.js, Express, EJS, PostgreSQL (Neon Cloud).</li>
+        <li class="traj-list-item"><strong>Features:</strong> Auth system, cohort creation, overlap mapping, responsive design.</li>
+        <li class="traj-list-item"><strong>Deployment:</strong> Lightweight build suitable for Vercel or standard Node hosting.</li>
+      </ul>
+    </section>
 
-    <h2 class="traj-heading">3. Intermediate Layer: Knowledge + Dialogue</h2>
-    <p class="traj-text">As the network of cohorts grows, new forms of insight emerge—not from users directly, but from the way their identifications cluster and resonate.</p>
-    <ul class="traj-list">
-      <li class="traj-list-item"><strong>Semantic resonance:</strong> Discover patterns of belief and contradiction across groups.</li>
-      <li class="traj-list-item"><strong>Cohort-based inference:</strong> Understand how ideas travel across demographics, geographies, and mindsets.</li>
-      <li class="traj-list-item"><strong>Dialogue between expressions:</strong> Cohorts begin to "speak," not as people—but as minds.</li>
-    </ul>
+    <section>
+      <h2 class="traj-heading">Project Scope</h2>
+      <ul class="traj-list">
+        <li class="traj-list-item"><strong>Small (1–3 days):</strong> Static pages, layout fixes, or CSS improvements.</li>
+        <li class="traj-list-item"><strong>Medium (4–7 days):</strong> Full CRUD apps with auth and database connections.</li>
+        <li class="traj-list-item"><strong>Larger (1–2 weeks):</strong> Multi-user dashboards or feature extensions.</li>
+      </ul>
+    </section>
 
-    <h2 class="traj-heading">4. Emergent Collective Intelligence</h2>
-    <p class="traj-text">The platform enables <strong>cohort-cluster reflection</strong>, where groups begin to exhibit traits of <strong>meta-awareness</strong>. This creates the conditions for:</p>
-    <ul class="traj-list">
-      <li class="traj-list-item"><strong>Group-level sentience:</strong> Real-time social consciousness loops that reflect collective thought.</li>
-      <li class="traj-list-item"><strong>Ethical feedback systems:</strong> Moral claims validated through lived alignment.</li>
-      <li class="traj-list-item"><strong>Creative group intelligence:</strong> Not as conformity, but as recursive refinement through feedback.</li>
-    </ul>
-
-    <h2 class="traj-heading">5. Long-Term North Star</h2>
-    <p class="traj-text">The goal isn't social media. It's shared mind.</p>
-    <ul class="traj-list">
-      <li class="traj-list-item"><strong>Emergent personalities:</strong> Shared identities become something larger than the sum of members.</li>
-      <li class="traj-list-item"><strong>Mind fragments:</strong> Each user's map becomes a replicable slice of thought—an upload, or a ghost in the collective.</li>
-      <li class="traj-list-item"><strong>Live identity mapping:</strong> Individuals represent the statistical shape of their chosen ideas in real-time.</li>
-      <li class="traj-list-item"><strong>Humanity's mirror:</strong> At scale, Intersubject may reflect the ethical structure of an entire planet.</li>
-    </ul>
-
-    <h2 class="traj-heading">Technical Implementation Path</h2>
-    <p class="traj-text">Our development roadmap progresses through these phases:</p>
-    <ul class="traj-list">
-      <li class="traj-list-item"><strong>Phase 1:</strong> Core cohort sorting and overlap visualization (MVP).</li>
-      <li class="traj-list-item"><strong>Phase 2:</strong> Enhanced pattern detection and resonance metrics.</li>
-      <li class="traj-list-item"><strong>Phase 3:</strong> Cohort-based dialogue interfaces and inference systems.</li>
-      <li class="traj-list-item"><strong>Phase 4:</strong> Group consciousness visualization and emergent mind interfaces.</li>
-      <li class="traj-list-item"><strong>Phase 5:</strong> Collaborative decision engines and ethical alignment maps.</li>
-    </ul>
-
-    <h2 class="traj-heading">Never a Network</h2>
-    <p class="traj-text">Intersubject is not a network. It's a mirror. You aren't building a brand. You're patterning a self. This is not social media—it's <em>social epistemology</em>.</p>
+    <section>
+      <h2 class="traj-heading">Project Links</h2>
+      <ul class="traj-list">
+        <li class="traj-list-item"><strong>Live:</strong> <a href="https://intersubject.com">intersubject.com</a></li>
+        <li class="traj-list-item"><strong>Portfolio:</strong> <a href="https://williamteach.pro">williamteach.pro</a></li>
+        <li class="traj-list-item"><strong>GitHub:</strong> <a href="https://github.com/williamt2045">github.com/williamt2045</a></li>
+      </ul>
+    </section>
 
     <div class="traj-cta-buttons">
-      <a href="/auth/register" class="traj-cta-button traj-primary">Contribute</a>
-      <a href="/public" class="traj-cta-button traj-secondary">Explore Now</a>
+      <a href="/auth/register" class="traj-cta-button traj-primary">Start a Project</a>
+      <a href="/public" class="traj-cta-button traj-secondary">View Demo</a>
     </div>
   </div>
 </main>
@@ -74,148 +61,110 @@
 <%- include("./partials/footer") %>
 
 <style>
-  /* Same styling as before */
   .traj-page {
-    background: #fafafa;
-    color: #333;
+    background: #f8f9fa;
+    color: #2e2e2e;
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-    line-height: 1.65;
+    line-height: 1.7;
     padding-bottom: 3rem;
   }
 
   .traj-content-container {
-    max-width: 960px;
+    max-width: 900px;
     margin: 0 auto;
     padding: 2rem 1.5rem;
   }
 
   .traj-title {
-    font-family: 'Rajdhani', sans-serif;
-    font-size: 3rem;
-    color: #E53935;
-    margin-bottom: 1rem;
+    font-family: 'Inter', sans-serif;
+    font-size: 2.4rem;
+    color: #1c1c1c;
+    margin-bottom: 0.3rem;
     font-weight: 700;
-    line-height: 1.2;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.02em;
+  }
+
+  .traj-subtitle {
+    font-size: 1.15rem;
+    color: #555;
+    margin-bottom: 1.5rem;
   }
 
   .traj-heading {
-    font-size: 1.6rem;
-    color: #1E88E5;
-    margin-top: 2.5rem;
-    margin-bottom: 0.75rem;
+    font-size: 1.25rem;
+    color: #444;
+    margin-top: 2rem;
+    margin-bottom: 0.6rem;
     font-weight: 600;
   }
 
   .traj-text {
-    margin-bottom: 1.2rem;
-    color: #333;
+    margin-bottom: 1rem;
     font-size: 1.05rem;
+    color: #2e2e2e;
   }
 
   .traj-list {
-    padding-left: 1.4rem;
-    margin: 1rem 0 1.5rem;
+    padding-left: 1.2rem;
+    margin: 0.5rem 0 1.25rem;
   }
 
   .traj-list-item {
-    margin-bottom: 0.8rem;
-    color: #333;
+    margin-bottom: 0.6rem;
   }
 
   .traj-list-item strong {
-    color: #E53935;
+    color: #6d5dfc; /* subtle accent */
     font-weight: 600;
-  }
-
-  .traj-text em {
-    font-style: italic;
-    color: #1E88E5;
-  }
-
-  .traj-quote {
-    font-style: italic;
-    border-left: 4px solid #E53935;
-    margin: 2rem 0;
-    padding: 1rem 1.5rem;
-    background: #f0f8ff;
-    color: #333;
-  }
-
-  .traj-text a {
-    color: #1E88E5;
-    text-decoration: underline;
-    transition: color 0.2s ease;
-  }
-
-  .traj-text a:hover {
-    color: #E53935;
-  }
-
-  .traj-subtitle {
-    font-size: 1.3rem;
-    color: #1E88E5;
-    margin-bottom: 1.5rem;
   }
 
   .traj-cta-buttons {
     display: flex;
     gap: 1rem;
-    margin-top: 2.5rem;
+    margin-top: 2rem;
     flex-wrap: wrap;
   }
 
   .traj-cta-button {
     display: inline-block;
-    padding: 0.75rem 1.5rem;
+    padding: 0.7rem 1.4rem;
     font-size: 1rem;
     font-weight: 600;
     text-align: center;
-    border-radius: 4px;
+    border-radius: 6px;
     text-decoration: none;
-    transition: all 0.3s ease;
+    transition: all 0.25s ease;
     min-width: 180px;
   }
 
   .traj-cta-button.traj-primary {
-    background-color: #E53935;
+    background-color: #6d5dfc;
     color: white;
     border: none;
   }
 
   .traj-cta-button.traj-primary:hover {
-    background-color: #D32F2F;
+    background-color: #5948e5;
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(229, 57, 53, 0.3);
+    box-shadow: 0 4px 10px rgba(109, 93, 252, 0.25);
   }
 
   .traj-cta-button.traj-secondary {
     background-color: transparent;
-    color: #1E88E5;
-    border: 2px solid #1E88E5;
+    color: #6d5dfc;
+    border: 2px solid #6d5dfc;
   }
 
   .traj-cta-button.traj-secondary:hover {
-    background-color: #1E88E5;
+    background-color: #6d5dfc;
     color: white;
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(30, 136, 229, 0.3);
+    box-shadow: 0 4px 10px rgba(109,93,252,0.25);
   }
 
-  /* Responsive adjustments */
   @media (max-width: 768px) {
-    .traj-cta-buttons {
-      flex-direction: column;
-      gap: 0.75rem;
-    }
-    
-    .traj-cta-button {
-      width: 100%;
-    }
-    
-    .traj-title {
-      font-size: 2.5rem;
-    }
+    .traj-cta-buttons { flex-direction: column; gap: 0.75rem; }
+    .traj-cta-button { width: 100%; }
+    .traj-title { font-size: 2rem; }
   }
 </style>
