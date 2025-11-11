@@ -1,131 +1,117 @@
 <footer class="site-footer">
   <div class="footer-container">
-      <ul class="footer-links">
-          <li><a href="/about">About</a></li>
-          <li><a href="https://www.williamteach.pro" target="_blank" rel="noopener">Contact / Portfolio</a></li>
-          <li><a href="/trajectories">Development Trajectories</a></li>
-      </ul>
-      
-      <p class="copyright">&copy; 2025 Globethoughts. All rights reserved.</p>
+    <ul class="footer-links">
+      <li><a href="/about">About</a></li>
+      <li><a href="https://www.williamteach.pro" target="_blank" rel="noopener">Contact / Portfolio</a></li>
+      <li><a href="/trajectories">Development Trajectories</a></li>
+    </ul>
+    <p class="copyright">&copy; 2025 Globethoughts. All rights reserved.</p>
   </div>
 </footer>
 </body>
 </html>
 
 <style>
+/* Footer — matches About aesthetic */
 .site-footer {
-  background-color: #1E88E5;
-  border-top: 3px solid #E53935;
-  padding: 1.2rem 0;
-  width: 100%;
-  position: relative;
-  bottom: 0;
-  left: 0;
-  z-index: 10;
+  background: #f8f9fa;
+  border-top: 1px solid #e6e9ef;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  color: #2e2e2e;
+  text-align: center;
+  padding: 2rem 1rem;
 }
 
 .footer-container {
-  max-width: 1600px;
+  max-width: 900px;
   margin: 0 auto;
-  padding: 0 1rem;
-  text-align: center;
 }
 
 .footer-links {
   list-style: none;
   display: flex;
   justify-content: center;
-  gap: 2.5rem;
+  gap: 2rem;
+  flex-wrap: wrap;
   padding: 0;
   margin: 0 0 1rem;
 }
 
 .footer-links li a {
-  color: white;
   text-decoration: none;
+  color: #444;
   font-weight: 500;
-  font-size: 1.05rem;
-  padding: 0.5rem 0;
   position: relative;
   transition: color 0.2s ease;
 }
 
 .footer-links li a:hover {
-  color: #E53935;
+  color: #6d5dfc;
 }
 
-.footer-links li a:after {
-  content: '';
+.footer-links li a::after {
+  content: "";
   position: absolute;
+  left: 0;
+  bottom: -3px;
   width: 0;
   height: 2px;
-  bottom: 0;
-  left: 0;
-  background-color: #E53935;
-  transition: width 0.2s ease;
+  background-color: #6d5dfc;
+  transition: width 0.25s ease;
 }
 
-.footer-links li a:hover:after {
+.footer-links li a:hover::after {
   width: 100%;
 }
 
 .copyright {
-  margin-top: 0.75rem;
-  color: rgba(255, 255, 255, 0.8);
-  font-size: 0.95rem;
+  font-size: 0.9rem;
+  color: #666;
+  margin-top: 0.5rem;
 }
 
-/* Mobile responsiveness */
+/* Page structure consistency */
+html, body {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.dashboard-container,
+.home-main,
+main {
+  flex: 1 0 auto;
+}
+
+body > .site-footer {
+  flex-shrink: 0;
+}
+
+.results-section {
+  margin-bottom: 2rem;
+  padding-bottom: 2rem;
+}
+
+.pagination {
+  margin-bottom: 2.5rem;
+}
+
+/* Responsive */
 @media (max-width: 768px) {
   .footer-links {
-    gap: 1.5rem;
+    gap: 1.25rem;
   }
 }
 
 @media (max-width: 480px) {
   .footer-links {
     flex-direction: column;
-    gap: 0.75rem;
+    gap: 0.6rem;
   }
 
   .site-footer {
-    padding: 1rem 0;
+    padding: 1.25rem 0;
   }
-}
-</style>
-
-<!-- Dashboard-specific footer styles -->
-<style>
-/* General page structure */
-html, body {
-  height: 100%;
-  margin: 0;
-}
-
-body {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-}
-
-/* Ensure main content takes available space */
-.dashboard-container, .home-main, main {
-  flex: 1 0 auto;
-}
-
-/* Dashboard-specific footer positioning */
-.results-section {
-  margin-bottom: 2rem; /* Add space before footer */
-  padding-bottom: 2rem;
-}
-
-/* Add pagination margin */
-.pagination {
-  margin-bottom: 2.5rem;
-}
-
-/* Make sure footer stays at bottom */
-body > .site-footer {
-  flex-shrink: 0;
 }
 </style>
